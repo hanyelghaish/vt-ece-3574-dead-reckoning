@@ -17,8 +17,8 @@ Navigation by dead reckoning, particularly as it applies to pedestrian use, is a
 
 ==Technical Stuff==
 
-Using OpenGL
-Android 3.2.x
-GIT
-Java
-Coming soon: full UML outline
+Using OpenGL<br>
+Android 3.2.x<br>
+GIT<br>
+Java<br>
+Coming soon: full UML outline<br>
