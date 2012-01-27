@@ -14,3 +14,11 @@ Dead reckoning is a technique that uses one's last known location and subsequent
 ==Novelty and Complexity==
 
 Navigation by dead reckoning, particularly as it applies to pedestrian use, is an area of active research.  We expect that noisy sensors and erratic human motion will make location tracking very difficult.  We will start with a basic implementation and attempt to improve performance as the semester progresses.
+
+==Technical Stuff==
+
+Using OpenGL
+Android 3.2.x
+GIT
+Java
+Coming soon: full UML outline
