@@ -8,7 +8,7 @@ Add your content here.
 
 = Build Cycle 1/31 - 2/9 =
 
-# The user will see a  GUI available with buttons, "CHOOSE MAP" and "LIVE/RAW DATA" (Kim)
-# The user will have access to accelerometer data after hitting the 2nd button (Nathan)
-# The user will have access to filtered accelerometer data on the same page (Mike)
-# The user will see an overlay of collision boundaries on top of the map (Roger)
+  # The user will see a  GUI available with buttons, "CHOOSE MAP" and "LIVE/RAW DATA" (Kim)
+  # The user will have access to accelerometer data after hitting the 2nd button (Nathan)
+  # The user will have access to filtered accelerometer data on the same page (Mike)
+  # The user will see an overlay of collision boundaries on top of the map (Roger)
