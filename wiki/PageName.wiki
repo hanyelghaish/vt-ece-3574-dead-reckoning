@@ -5,7 +5,6 @@
 
 Add your content here.
 
-
 = Build Cycle 1/31 - 2/9 =
 
   # The user will see a  GUI available with buttons, "CHOOSE MAP" and "LIVE/RAW DATA" (Kim)
