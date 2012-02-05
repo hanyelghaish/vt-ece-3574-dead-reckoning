@@ -11,3 +11,14 @@ Our phone seems to be the AT&T version of the Nexus S which has made it impervio
 
 Our phone is running Android 3.1.4.1.5.9.2.6.5
 Kernel 2.6.35.7-g3cc95e3
+
+==My job:==
+Build a service that records acellerometer data into a Content Provider
+
+Use the ContentResolver class to input data into ContentProvider.
+
+
+so my app looks like
+Activity running xml
+Activity does StartService() (accelerometerData)
+Activity continually query() a ContentResolver for accel data
