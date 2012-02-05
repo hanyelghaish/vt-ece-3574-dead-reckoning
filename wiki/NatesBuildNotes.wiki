@@ -30,3 +30,4 @@ or maybe the service can update it automatically...
 in AndroidManifest.xml declare my activity, service, content provider.
 
 an intent starts my service
+it will be a bound service, only needed when running a map. 
