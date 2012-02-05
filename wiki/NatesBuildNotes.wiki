@@ -22,3 +22,4 @@ so my app looks like
 Activity running xml
 Activity does StartService() (accelerometerData)
 Activity continually query() a ContentResolver for accel data
+or maybe the service can update it automatically...
