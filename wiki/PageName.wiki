@@ -16,3 +16,8 @@ Add your content here.
  I, Nathan, want to build a service using SensorManager that records data into (a) Content Provider array(s) to be accessed by the Filter (Mike). The Filter outputs usable information (e.g. velocity) into a different Content Provider. This information is used by MapClass (Kim) to move a dot on a screen. MapClass provides info in a third Content Provider containing dot location, map size, and absolute and relative wall locations. The information in the Filter and MapClass Content Providers will be used by CollisionManager (Roger) to avoid errors and correct/predict position. \
 
 Of course, this dot won't move in this first cycle. 
+
+Our phone seems to be the AT&T version of the Nexus S which has made it impervious to attempts to upgrade it. You can try. 
+
+Our phone is running Android 3.1.4.1.5.9.2.6.5
+Kernel 2.6.35.7-g3cc95e3
