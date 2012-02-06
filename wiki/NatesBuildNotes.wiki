@@ -27,7 +27,7 @@ Use the ContentResolver class to input data into ContentProvider.
 
 so my app looks like
 Activity running xml
-Activity does StartService() (accelerometerData)
+Activity does StartService() (accelerometerService)
 Activity continually query() a ContentResolver for accel data
 or maybe the service can update it automatically...
 
