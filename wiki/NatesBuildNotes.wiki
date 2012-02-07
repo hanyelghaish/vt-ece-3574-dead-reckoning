@@ -37,3 +37,5 @@ an intent starts my service
 it will be a bound service, only needed when running a map. 
 
 The Content Provider that stores the values from the accelerometer might be most efficient as a circularly linked list to avoid shifting all of the data every update. You would only have to shift the start and end points every update. 
+
+we don't need a content provider. also the linked list was a silly idea. changing it to multiple float arrays inside of the service. 
