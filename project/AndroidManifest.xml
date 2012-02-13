@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.vt.dr"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        >
+        <activity
+            android:name=".mainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".menuActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.MENUACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".circleActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.CIRCLEACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lshapeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.LSHAPEACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".straightActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.STRAIGHTACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rawDataActivity"
+            android:label="@string/app_name"
+			android:configChanges="keyboardHidden|orientation"
+      		android:screenOrientation="portrait"            
+            >
+            <intent-filter>
+                <action android:name="edu.vt.dr.RAWDATAACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
