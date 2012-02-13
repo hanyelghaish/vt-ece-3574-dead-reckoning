@@ -14,10 +14,10 @@ Like a boss.
 
 = Build Cycle 2/14 - 2/23 =
 
-#
 
-#
+  # The user will have a non-image in the 'Map' screen built with OpenGL drawing on a Map class. (Roger && Kim)
+  # The user will have a rough estimation of speed, if not actual speed (possibly a 1-10 scale), displayed on the map screen to indicate the cross functionality of the accelerometer and the skeleton Map interface. (Nathan, Mike)
 
-#
 
-#
+
+Note: The crux of our project relies on the algorithms that are applied to the hardware and data structures. This cycle will involve understanding the math and beginning to build a map with OpenGL.  
