@@ -1,45 +1,66 @@
-//Roger Baker Kim Do
-//Nathan Gentzen Mike Sutton
-//ECE 3574 - HW4
-//02/07/2012
 package edu.vt.dr;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/******************************************************************************
+ * 
+ * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * 
+ * This class is the main driver of the Project. 
+ * 
+ * It is called upon when the program first starts.
+ *
+ * From here, the user can select one of two buttons
+ *    1.) Map selection - the user can then select a map to display
+ *    2.) Raw Data - the user can view the data from the accelerometer
+ *    
+ * Last Revision:
+ * 
+ * Initials                 Date                Revisions
+ * RJB                      2/21/12          Cleaned code; documentation added 
+ * 
+ ******************************************************************************/
+
 public class mainActivity extends Activity {
-    /** Called when the activity is first created. */
-    @Override
+	
+    private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
+
+
+	private static final String MENUACTIVITY = "edu.vt.dr.MENUACTIVITY";
+	
+     
+	Button map, data;
+	
+	
+	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
+    	//calls super, sets GUI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Button map;
+        //associates buttons with IDs
         map = (Button) findViewById(R.id.mapButton);
+        data = (Button) findViewById(R.id.dataButton);
         
         
+        //associates listener for button Map Selection
         map.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View v) {
-		      Intent gotoMenu = new Intent("edu.vt.dr.MENUACTIVITY");
+		      Intent gotoMenu = new Intent(MENUACTIVITY);
               startActivity(gotoMenu);
 			}
-        	
         });
         
-        Button data;
-        data = (Button) findViewById(R.id.dataButton);
-        
+        //associates listener for button Raw Data
         data.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				Intent gotoData = new Intent("edu.vt.dr.RAWDATAACTIVITY");
+				Intent gotoData = new Intent(RAWDATAACTIVITY);
 				startActivity(gotoData);
-				
-				
 			}
 		});
         
