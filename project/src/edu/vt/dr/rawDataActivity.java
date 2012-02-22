@@ -1,9 +1,4 @@
-//Roger Baker Kim Do
-//Nathan Gentzen Mike Sutton
-//ECE 3574 - HW4
-//02/07/2012
 package edu.vt.dr;
-
 import edu.emory.mathcs.jtransforms.fft.FloatFFT_1D;
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -16,8 +11,28 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+/******************************************************************************
+ * 
+ * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * 
+ * This class is for reading input from the accelerometer. 
+ * 
+ * It is called upon when the Raw data button is pressed on the initial main screen.
+ *
+ * From here, the user must use a "Back" button on the phone to return to the maps menu
+ *  (i.e. there is no back button in the GUI) 
+ *
+ * Last Revision:
+ * 
+ * Initials                 Date                Revisions
+ * MH                       2/9/12              Initial writing, computations and implementation
+ * RJB                      2/21/12          Cleaned code; documentation added 
+ * 
+ ******************************************************************************/
+
+
+
 public class rawDataActivity extends Activity implements SensorEventListener {
-    /** Called when the activity is first created. */
 	
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
@@ -29,21 +44,26 @@ public class rawDataActivity extends Activity implements SensorEventListener {
 	
 	private FloatFFT_1D fft = new FloatFFT_1D(8);
 	
-	@Override
+	
+	/** when Activity is resumed **/
 	public void onResume() {
+		//call to super
 		super.onResume();
+		//re-register sensor manager to accelerometer
 		mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+		//update last time, reset number of samples
 		lastTime = SystemClock.uptimeMillis();
 		sampleCount = 0;
 	}
 	
-	@Override
+	/** when Activity is paused **/
 	public void onPause() {
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 	}
 	
-	@Override
+	/**when Activity is first created **/
+	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.readings);
@@ -79,6 +99,7 @@ public class rawDataActivity extends Activity implements SensorEventListener {
     	
     }
     
+    /** when change is detected **/
     public void onSensorChanged(SensorEvent event) {
     	
     	++sampleCount;
