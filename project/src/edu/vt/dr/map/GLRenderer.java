@@ -4,35 +4,42 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
 
 public class GLRenderer implements Renderer {
     private TheFloor      square;     // the square
    // private TheMan			man;
-    //private Context		context;
+   // private Context		context;
     
     //private float	position[] = new float [3];
 
     /** Constructor to set the handed over context */
     public GLRenderer(/*Context context, float x, float y, float z*/) {
-    	//this.context	= context;
-        this.square     = new TheFloor();
-       // this.man		= new TheMan();
-       //position[0] = x;
-       //position[1] = y;
-       //position[2] = z;
+		// this.context = context;
+		this.square = new TheFloor();
+		// this.man = new TheMan();
+		// position[0] = x;
+		// position[1] = y;
+		// position[2] = z;
+
+        
     }
  
     public void onDrawFrame(GL10 gl) {
         // clear Screen and Depth Buffer
-        //gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
  
         // Reset the Modelview Matrix
         gl.glLoadIdentity();
         
-		// gl.glTranslatef(position[0], position[1], position[2]);
-		//  man.draw(gl);
+		 //gl.glTranslatef(position[0], position[1], position[2]);
+	//	gl.glTranslatef(0, 0, 1) ;
+      //  man.draw(gl);
         // Drawing
         gl.glTranslatef(0.0f, 0.0f, -5.0f);     // move 5 units INTO the screen
                                                 // is the same as moving the camera 5 units away
@@ -47,6 +54,7 @@ public class GLRenderer implements Renderer {
             height = 1;                         //Making Height Equal One
         }
  
+        
         gl.glViewport(0, 0, width, height);     //Reset The Current Viewport
         gl.glMatrixMode(GL10.GL_PROJECTION);    //Select The Projection Matrix
         gl.glLoadIdentity();                    //Reset The Projection Matrix
@@ -60,14 +68,21 @@ public class GLRenderer implements Renderer {
  
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
     	// Load the texture for the square
-    	   // man.loadGLTexture(gl, this.context);
+    	  //  man.loadGLTexture(gl, this.context);
     	 
     	    gl.glEnable(GL10.GL_TEXTURE_2D);            //Enable Texture Mapping ( NEW )
     	    gl.glShadeModel(GL10.GL_SMOOTH);            //Enable Smooth Shading
-    	    gl.glClearColor(1.0f, 1.0f, 0.0f, 0.5f);    //Black Background
+    	    gl.glClearColor(0f, 0f, 0.0f, 0.5f);    //Black Background
     	    gl.glClearDepthf(1.0f);                     //Depth Buffer Setup
     	    gl.glEnable(GL10.GL_DEPTH_TEST);            //Enables Depth Testing
     	    gl.glDepthFunc(GL10.GL_LEQUAL);             //The Type Of Depth Testing To Do
+    	    
+    	    
+    	    
+    	    
+//    	    
+//            mLabelMsPF = mLabels.add(gl, "ms/f", mLabelPaint);
+//            mLabels.endAdding(gl);
 
     	    //Really Nice Perspective Calculations
     	    gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);

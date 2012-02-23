@@ -43,7 +43,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+    <Button
+        android:id="@+id/movementButton"
+        android:layout_width="286dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:drawablePadding="0dp"
+        android:text="Movement" />
+    
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
