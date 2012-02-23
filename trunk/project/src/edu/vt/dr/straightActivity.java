@@ -1,6 +1,10 @@
 package edu.vt.dr;
 import android.app.Activity;
+import android.content.Context;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+
+import edu.vt.dr.map.*;
 
 
 /******************************************************************************
@@ -23,9 +27,49 @@ import android.os.Bundle;
 
 public class straightActivity extends Activity {
 
+
+	private GLSurfaceView mGLView;
+	
+	/**************************************************
+	 * On Create
+	**************************************************/
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.straight);
+		
+		mGLView = new straightActivitySurfaceView(this);
+		
+		setContentView(mGLView);
+	}
+	
+	/**************************************************
+	 * On Pause
+	**************************************************/
+	@Override
+	protected void onPause(){
+		super.onPause();
+		mGLView.onPause();
+	}
+	
+	/**************************************************
+	 * On Resume
+	**************************************************/
+	@Override
+	protected void onResume(){
+		super.onResume();
 	}
 
+}
+
+class straightActivitySurfaceView extends GLSurfaceView{
+
+	public straightActivitySurfaceView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+		
+		//Set the Renderer for drawing on the GLSurfaceView
+		setRenderer(new GLRenderer(/*context,2.0f,1.0f,-5.0f*/));
+	}
+	
 }
