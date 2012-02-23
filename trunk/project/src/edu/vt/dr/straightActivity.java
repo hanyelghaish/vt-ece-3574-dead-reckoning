@@ -1,8 +1,15 @@
 package edu.vt.dr;
 import android.app.Activity;
 import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
+import android.opengl.Matrix;
 import android.os.Bundle;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.TextView;
 
 import edu.vt.dr.map.*;
 
@@ -29,18 +36,29 @@ public class straightActivity extends Activity {
 
 
 	private GLSurfaceView mGLView;
+ 
+	
+
+	
 	
 	/**************************************************
 	 * On Create
 	**************************************************/
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		mGLView = new straightActivitySurfaceView(this);
 		
-		setContentView(mGLView);
+		mGLView = new straightActivitySurfaceView(this);
+		setContentView(mGLView);     
+	    TextView tv = new TextView(this);
+		tv.setText("(0.00, 0.00)");
+		tv.setTextSize(25);
+		this.addContentView(tv,  new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
+		
 	}
 	
 	/**************************************************
@@ -60,6 +78,11 @@ public class straightActivity extends Activity {
 		super.onResume();
 	}
 
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 class straightActivitySurfaceView extends GLSurfaceView{
@@ -71,5 +94,4 @@ class straightActivitySurfaceView extends GLSurfaceView{
 		//Set the Renderer for drawing on the GLSurfaceView
 		setRenderer(new GLRenderer(/*context,2.0f,1.0f,-5.0f*/));
 	}
-	
 }
