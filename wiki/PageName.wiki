@@ -23,7 +23,7 @@ Note: The crux of our project relies on the algorithms that are applied to the h
 = Build Cycle 2/28 - 3/15 =
 The ides of March hath come.
 
-  #The user will have access to a map of the classroom (Kim)
-  #The user's movement will be represented with a moving dot (Nathan, Roger) 
-  #The user will be able to orient the phone in any way and not have it be considered movement. (Mike)
+  # The user will have access to a map of the classroom (Kim)
+  # The user's movement will be represented with a moving dot (Nathan, Roger) 
+  # The user will be able to orient the phone in any way and not have it be considered movement. (Mike)
  
