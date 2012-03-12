@@ -18,15 +18,13 @@ import android.widget.Button;
  * 
  * Initials                 Date                Revisions
  * RJB                      2/21/12          Cleaned code; documentation added 
- * 
+ * RJB                      3/10/12           Compacted code a bit
  ******************************************************************************/
 public class menuActivity extends Activity {
 	
         private static final String CIRCLEACTIVITY = "edu.vt.dr.CIRCLEACTIVITY";
 		private static final String LSHAPEACTIVITY = "edu.vt.dr.LSHAPEACTIVITY";
 		private static final String STRAIGHTACTIVITY = "edu.vt.dr.STRAIGHTACTIVITY";
-		Button circle, lshape, straight;        
-
 
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -35,9 +33,9 @@ public class menuActivity extends Activity {
 		setContentView(R.layout.menu);
 		
         //associate buttons with IDs 
-        straight = (Button) findViewById(R.id.straightButton);
-        lshape = (Button) findViewById(R.id.lshapeButton);
-        circle = (Button) findViewById(R.id.circleButton);
+        Button straight = (Button) findViewById(R.id.straightButton);
+        Button lshape = (Button) findViewById(R.id.lshapeButton);
+        Button circle = (Button) findViewById(R.id.circleButton);
         
         //associates listener for button for straight map
         straight.setOnClickListener(new View.OnClickListener(){

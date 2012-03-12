@@ -23,26 +23,22 @@ import android.widget.TextView;
  * From here, the user can select one of two buttons
  *    1.) Map selection - the user can then select a map to display
  *    2.) Raw Data - the user can view the data from the accelerometer
+ *    3.) Movement - the user can watch the their movement correspond to change in position
  *    
  * Last Revision:
  * 
  * Initials                 Date                Revisions
  * RJB                      2/21/12          Cleaned code; documentation added 
+ * RJB                      3/10/12           Added Movement button/functionality
  * 
  ******************************************************************************/
 
 public class mainActivity extends Activity {
 	
     private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
-
     private static final String MOVEMENTACTIVITY = "edu.vt.dr.MOVEMENTACTIVITY";
 	private static final String MENUACTIVITY = "edu.vt.dr.MENUACTIVITY";
 
-	
-
-     
-	Button map, data, movement;
-	
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +47,9 @@ public class mainActivity extends Activity {
         setContentView(R.layout.main);
         
         //associates buttons with IDs
-        map = (Button) findViewById(R.id.mapButton);
-        data = (Button) findViewById(R.id.dataButton);
-        movement = (Button) findViewById(R.id.movementButton);	
+        Button map = (Button) findViewById(R.id.mapButton);
+        Button data = (Button) findViewById(R.id.dataButton);
+        Button movement = (Button) findViewById(R.id.movementButton);	
         
 
         
@@ -84,8 +80,5 @@ public class mainActivity extends Activity {
 			}
 		});
         
-        
-        
-
     }
 }
