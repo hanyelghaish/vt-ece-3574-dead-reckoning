@@ -1,7 +1,7 @@
-package edu.vt.dr;
 
+
+package edu.vt.dr;
 import android.app.Activity;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,6 +11,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+/******************************************************************************
+ * 
+ * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * 
+ * This class is for displaying filtered data from devices components. 
+ * 
+ *
+ *
+ * Last Revision:
+ * 
+ * Initials                 Date                Revisions
+ * MS/NG                   2/22/12              Initial creation, 
+ ******************************************************************************/
 
 public class MovementActivity extends Activity implements SensorEventListener {
 	/** Called when the activity is first created. */
@@ -28,7 +42,6 @@ public class MovementActivity extends Activity implements SensorEventListener {
 	private static final float aScaleFactor= (float)0.03;
 	private static final float vScaleFactor= (float)0.03;
 
-	Button start;
 	boolean buttonStateStart = true;
 
 	@Override
@@ -46,14 +59,12 @@ public class MovementActivity extends Activity implements SensorEventListener {
 		angleBox = (TextView) findViewById(R.id.angleDisplay);
 		linearAccelBox = (TextView) findViewById(R.id.linearAccelDisplay);
 
-		start = (Button) findViewById(R.id.button1);
+		Button start = (Button) findViewById(R.id.button1);
 
 		start.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-	
-				
-				
+
 				if (buttonStateStart) {
 					((Button) v).setText("STOP");
 					mSensorManager.registerListener(MovementActivity.this, mAccelerometer,
@@ -70,9 +81,6 @@ public class MovementActivity extends Activity implements SensorEventListener {
 					
 					((Button) v).setText("START");
 				}
-				
-				
-				
 				
 				buttonStateStart = !buttonStateStart;
 
