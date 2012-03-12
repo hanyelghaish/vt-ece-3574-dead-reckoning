@@ -19,6 +19,7 @@ import android.widget.Button;
  * Initials                 Date                Revisions
  * RJB                      2/21/12          Cleaned code; documentation added 
  * RJB                      3/10/12           Compacted code a bit
+ * RJB                      3/12/12
  ******************************************************************************/
 public class menuActivity extends Activity {
 	

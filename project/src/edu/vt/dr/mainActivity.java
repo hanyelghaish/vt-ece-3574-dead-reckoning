@@ -9,6 +9,7 @@ import android.opengl.Matrix;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import android.widget.TextView;
 
@@ -44,17 +45,19 @@ public class mainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	//calls super, sets GUI
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.mainmenu);
         
         //associates buttons with IDs
-        Button map = (Button) findViewById(R.id.mapButton);
-        Button data = (Button) findViewById(R.id.dataButton);
-        Button movement = (Button) findViewById(R.id.movementButton);	
         
-
+        ImageButton mapMenu = (ImageButton) findViewById(R.id.mapButton);
+        ImageButton aboutUs = (ImageButton) findViewById(R.id.aboutButton);
+        
+       // Button map = (Button) findViewById(R.id.mapButton);
+       // Button data = (Button) findViewById(R.id.dataButton);
+       // Button movement = (Button) findViewById(R.id.movementButton);	
         
         //associates listener for button Map Selection
-        map.setOnClickListener(new View.OnClickListener(){
+        mapMenu.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View v) {
 		      Intent gotoMenu = new Intent(MENUACTIVITY);
@@ -63,22 +66,22 @@ public class mainActivity extends Activity {
         });
         
         //associates listener for button Raw Data
-        data.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent gotoData = new Intent(RAWDATAACTIVITY);
-				startActivity(gotoData);
-			}
-		});
+//        data.setOnClickListener(new View.OnClickListener() {
+//			
+//			public void onClick(View v) {
+//				Intent gotoData = new Intent(RAWDATAACTIVITY);
+//				startActivity(gotoData);
+//			}
+//		});
         
         //associates listener for button Movement
-        movement.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent gotoData = new Intent(MOVEMENTACTIVITY);
-				startActivity(gotoData);
-			}
-		});
+//        movement.setOnClickListener(new View.OnClickListener() {
+//			
+//			public void onClick(View v) {
+//				Intent gotoData = new Intent(MOVEMENTACTIVITY);
+//				startActivity(gotoData);
+//			}
+//		});
         
     }
 }

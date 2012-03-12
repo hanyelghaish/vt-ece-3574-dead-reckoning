@@ -6,6 +6,22 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Window;
 
+/******************************************************************************
+ * 
+ * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * 
+ * This class is for the splash screen in the initial launch of the app
+ * 
+ * It will play a little jingle, show a quick animation and then goto the main screen
+ *
+ *
+ * Last Revision:
+ * 
+ * Initials                 Date                Revisions
+ * RJB                      3/12/12           Initial creation, put in sound and temp background 
+ ******************************************************************************/
+
+
 public class Splash extends Activity {
 
 	private static final String mainActivityLaunch = "edu.vt.dr.MAINACTIVITY";
