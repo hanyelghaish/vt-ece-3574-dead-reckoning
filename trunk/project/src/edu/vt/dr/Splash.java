@@ -25,14 +25,15 @@ import android.view.Window;
 public class Splash extends Activity {
 
 	private static final String mainActivityLaunch = "edu.vt.dr.MAINACTIVITY";
-
+	MediaPlayer splashChime;
+	
 	@Override
 	protected void onCreate(Bundle b) 
 	{
 		super.onCreate(b);        
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.splash);
-		MediaPlayer splashChime = MediaPlayer.create(Splash.this, R.raw.splashsound);
+		splashChime = MediaPlayer.create(Splash.this, R.raw.splashsound);
 		splashChime.start();
 		Thread timer = new Thread(){
 			public void run(){
@@ -52,8 +53,10 @@ public class Splash extends Activity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
+		splashChime.stop();
 		finish();
 	}
+	
 	
 	
 

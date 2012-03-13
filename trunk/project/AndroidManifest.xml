@@ -21,7 +21,6 @@
         </activity>
         
         
-        
         <activity
             android:name=".mainActivity"
             android:label="@string/app_name" >
@@ -39,26 +38,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".circleActivity"
+            android:name=".CircleMap"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="edu.vt.dr.CIRCLEACTIVITY" />
+                <action android:name="edu.vt.dr.CIRCLEMAP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".lshapeActivity"
+            android:name=".LShapeMap"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="edu.vt.dr.LSHAPEACTIVITY" />
+                <action android:name="edu.vt.dr.LSHAPEMAP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".straightActivity"
+            android:name=".StraightMap"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="edu.vt.dr.STRAIGHTACTIVITY" />
+                <action android:name="edu.vt.dr.STRAIGHTMAP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -85,6 +84,35 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        
+        <activity
+            android:name=".ListVMenu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.LISTVMENU" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Pam3010Map"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="edu.vt.dr.PAM3010MAP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="edu.vt.dr.ABOUTUS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>     
+        </activity>
+        
         
         
         

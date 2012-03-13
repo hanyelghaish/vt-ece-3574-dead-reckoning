@@ -1,6 +1,7 @@
 package edu.vt.dr;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -36,15 +37,18 @@ import android.widget.TextView;
 
 public class mainActivity extends Activity {
 	
-    private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
+    private static final String LISTVMENU = "edu.vt.dr.LISTVMENU";
+	private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
     private static final String MOVEMENTACTIVITY = "edu.vt.dr.MOVEMENTACTIVITY";
 	private static final String MENUACTIVITY = "edu.vt.dr.MENUACTIVITY";
+	private static final String ABOUTUS = "edu.vt.dr.ABOUTUS";
 
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
     	//calls super, sets GUI
         super.onCreate(savedInstanceState);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.mainmenu);
         
         //associates buttons with IDs
@@ -56,14 +60,25 @@ public class mainActivity extends Activity {
        // Button data = (Button) findViewById(R.id.dataButton);
        // Button movement = (Button) findViewById(R.id.movementButton);	
         
-        //associates listener for button Map Selection
+        //associates listener for Map Selection button
         mapMenu.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View v) {
-		      Intent gotoMenu = new Intent(MENUACTIVITY);
-              startActivity(gotoMenu);
+		      Intent i = new Intent(LISTVMENU);
+              startActivity(i);
 			}
         });
+        
+        //associates listener for About Us Button
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent i = new Intent(ABOUTUS);
+				startActivity(i);
+				
+			}
+		});
+        
         
         //associates listener for button Raw Data
 //        data.setOnClickListener(new View.OnClickListener() {
