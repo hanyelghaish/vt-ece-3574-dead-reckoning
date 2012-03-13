@@ -23,9 +23,9 @@ import android.widget.Button;
  ******************************************************************************/
 public class menuActivity extends Activity {
 	
-        private static final String CIRCLEACTIVITY = "edu.vt.dr.CIRCLEACTIVITY";
-		private static final String LSHAPEACTIVITY = "edu.vt.dr.LSHAPEACTIVITY";
-		private static final String STRAIGHTACTIVITY = "edu.vt.dr.STRAIGHTACTIVITY";
+        private static final String CIRCLEACTIVITY = "edu.vt.dr.CIRCLEMAP";
+		private static final String LSHAPEACTIVITY = "edu.vt.dr.LSHAPEMAP";
+		private static final String STRAIGHTACTIVITY = "edu.vt.dr.STRAIGHTMAP";
 
 	protected void onCreate(Bundle savedInstanceState) {
 		

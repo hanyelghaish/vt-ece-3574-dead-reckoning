@@ -1,6 +1,7 @@
 package edu.vt.dr;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -32,7 +33,7 @@ import edu.vt.dr.map.*;
  * 
  ******************************************************************************/
 
-public class straightActivity extends Activity {
+public class StraightMap extends Activity {
 
 
 	private GLSurfaceView mGLView;
@@ -50,7 +51,7 @@ public class straightActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		mGLView = new straightActivitySurfaceView(this);
 		setContentView(mGLView);     
 	    TextView tv = new TextView(this);
