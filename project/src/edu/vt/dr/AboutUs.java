@@ -1,15 +1,18 @@
 package edu.vt.dr;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.view.Window;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 public class AboutUs extends Activity{
-    TextView tv;
+    private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
+    private static final String MOVEMENT = "edu.vt.dr.MOVEMENTACTIVITY";
+	TextView tv;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
@@ -18,8 +21,46 @@ public class AboutUs extends Activity{
 		setContentView(R.layout.aboutus);
 		this.tv = (TextView) findViewById(R.id.boutUsText);
 		tv.setText("");
-		tv.append("   Welcome to our Dead Reckoning App!!");
-		tv.append(" how are you \n");
+		tv.append("Welcome to our Dead Reckoning App");
+	    tv.append("                                 ");
+	    tv.append("                                 ");
+	    tv.append("What is Dead Reckoning?          ");
+	    tv.append("Dead Reckoning is the process of ");
+	    tv.append("finding ones position based on   ");
+	    tv.append("movement from an initial position.");
+	    tv.append("Using your phone's accelerometer ");
+	    tv.append("and compass, we can calculate    ");
+	    tv.append("where your new position is.      ");
+	    tv.append("                                 ");
+	    tv.append("Click the buttons below to view  ");
+	    tv.append("raw data and filtered data.      ");
+	    tv.append("                                 ");
+	    tv.append("This app was created by:         ");
+	    tv.append("   Mike Hutton       Kim Do      ");
+	    tv.append("   Nathan Gentzen  Roger Baker   ");
+		
+	    
+	    Button raw = (Button) findViewById(R.id.rawData);
+	    Button movement = (Button) findViewById(R.id.movementData);
+	    
+	    raw.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent i = new Intent(RAWDATAACTIVITY);
+				startActivity(i);
+			}
+		});
+	    
+	    movement.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent i = new Intent(MOVEMENT);
+				startActivity(i);
+			}
+		});
+	    
+	    
+	    
 
 
 

@@ -38,9 +38,6 @@ import android.widget.TextView;
 public class mainActivity extends Activity {
 	
     private static final String LISTVMENU = "edu.vt.dr.LISTVMENU";
-	private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
-    private static final String MOVEMENTACTIVITY = "edu.vt.dr.MOVEMENTACTIVITY";
-	private static final String MENUACTIVITY = "edu.vt.dr.MENUACTIVITY";
 	private static final String ABOUTUS = "edu.vt.dr.ABOUTUS";
 
 	
@@ -55,11 +52,7 @@ public class mainActivity extends Activity {
         
         ImageButton mapMenu = (ImageButton) findViewById(R.id.mapButton);
         ImageButton aboutUs = (ImageButton) findViewById(R.id.aboutButton);
-        
-       // Button map = (Button) findViewById(R.id.mapButton);
-       // Button data = (Button) findViewById(R.id.dataButton);
-       // Button movement = (Button) findViewById(R.id.movementButton);	
-        
+                
         //associates listener for Map Selection button
         mapMenu.setOnClickListener(new View.OnClickListener(){
 
@@ -79,24 +72,6 @@ public class mainActivity extends Activity {
 			}
 		});
         
-        
-        //associates listener for button Raw Data
-//        data.setOnClickListener(new View.OnClickListener() {
-//			
-//			public void onClick(View v) {
-//				Intent gotoData = new Intent(RAWDATAACTIVITY);
-//				startActivity(gotoData);
-//			}
-//		});
-        
-        //associates listener for button Movement
-//        movement.setOnClickListener(new View.OnClickListener() {
-//			
-//			public void onClick(View v) {
-//				Intent gotoData = new Intent(MOVEMENTACTIVITY);
-//				startActivity(gotoData);
-//			}
-//		});
         
     }
 }
