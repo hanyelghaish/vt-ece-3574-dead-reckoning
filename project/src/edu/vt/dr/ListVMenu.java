@@ -32,8 +32,14 @@ public class ListVMenu extends ListActivity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				String s = (String) ((TextView) arg1).getText();
+				if(s == "PAM 3010" )
+				{
+					s = "PAM3010MAP";
+				}
+				else{
 				s=s.replace(" ","");
 				s=s.toUpperCase();
+				}
 			    String ns = "edu.vt.dr." + s;
 				Intent gotoMenu = new Intent(ns);
 				startActivity(gotoMenu);			
