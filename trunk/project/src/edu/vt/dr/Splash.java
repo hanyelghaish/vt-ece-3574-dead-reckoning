@@ -38,7 +38,7 @@ public class Splash extends Activity {
 		Thread timer = new Thread(){
 			public void run(){
 				try {
-					sleep(9200);
+					sleep(5200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally{
