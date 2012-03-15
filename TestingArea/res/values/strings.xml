@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TestingAreaActivity!</string>
+    <string name="app_name">DR</string>
+    <string name="requirements_fail">This device does not meet the system requirements</string>
+    <string name="requirements_ok">This device meets the system requirements</string>
+
+</resources>
