@@ -1,5 +1,5 @@
-#summary User stories
 #labels Featured
+ #summary User stories
 
 = User_Story =
 
@@ -31,4 +31,5 @@ The ides of March hath come.
   # User will be able to enter pedometer mode, with no map. (Mike)
   # User will be able to enter tracking mode to see their approximate location relative to their starting position, with no map. (Mike)
   # Integrate the map with the moving dot and also draw a trace of where the dot moves. (Kim & Roger)
+  # Enhanced splash screen with flash animation (Kim & Roger)
  
