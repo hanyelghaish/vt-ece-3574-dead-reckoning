@@ -30,5 +30,5 @@ The ides of March hath come.
 = Build Cycle 3/20 - 3/29 =
   # User will be able to enter pedometer mode, with no map. (Mike)
   # User will be able to enter tracking mode to see their approximate location relative to their starting position, with no map. (Mike)
-  # Integrate the map with the moving dot and also draw a trace of where the dot moves.
+  # Integrate the map with the moving dot and also draw a trace of where the dot moves. (Kim & Roger)
  
