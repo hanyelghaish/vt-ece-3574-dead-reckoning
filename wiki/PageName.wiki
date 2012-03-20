@@ -26,4 +26,8 @@ The ides of March hath come.
   # The user will have access to a map of the classroom (Kim)
   # The user's movement will be represented with a moving dot (Nathan, Roger) 
   # The user will be able to orient the phone in any way and not have it be considered movement. (Mike)
+
+= Build Cycle 3/20 - 3/29 =
+  # User will be able to enter pedometer mode, with no map. (Mike)
+  # User will be able to enter tracking mode to see their approximate location relative to their starting position, with no map. (Mike)
  
