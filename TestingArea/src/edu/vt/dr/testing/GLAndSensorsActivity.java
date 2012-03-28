@@ -28,14 +28,15 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
 	
 	private MySurfaceView GLView;
 	private boolean sysOk;
+	private SensorUtil SU;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        SensorUtil.init(this);
+        SU = new SensorUtil(this);
         LocationUtil.init();
-        if (SensorUtil.systemMeetsRequirements()) {
+        if (SU.systemMeetsRequirements()) {
         	
         	requestWindowFeature(Window.FEATURE_NO_TITLE);
         	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -55,7 +56,7 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
     public void onResume() {
     	super.onResume();
     	if (sysOk) {
-    		SensorUtil.registerListeners();
+    		SU.registerListeners();
     		GLView.onResume();
     	}
     }
@@ -64,7 +65,7 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
     public void onPause() {
     	super.onPause();
     	if (sysOk) {
-    		SensorUtil.unregisterListeners();
+    		SU.unregisterListeners();
     		GLView.onPause();
     	}
     }
@@ -75,9 +76,8 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
         return true; 
     } 
 
-
     public void onSensorChanged(SensorEvent event) {
-    	SensorUtil.routeEvent(event);
+    	SU.routeEvent(event);
     }
     
     public void onAccuracyChanged(Sensor sensor, int accuracy) {

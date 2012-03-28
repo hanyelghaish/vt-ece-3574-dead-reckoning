@@ -82,9 +82,7 @@ public class MySurfaceRenderer implements GLSurfaceView.Renderer {
         
         //draw pointer
         gl.glPushMatrix();
-        scaleFactor = LocationUtil.getAverageAcceleration() / 9.0f;
         gl.glTranslatef(p.getX(), p.getY(), 0);
-        gl.glScalef(scaleFactor, scaleFactor, scaleFactor);
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
 		gl.glRotatef(LocationUtil.getCurrentAzimuthDegrees()-90, 0, 0, 1);
 		gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, 3);

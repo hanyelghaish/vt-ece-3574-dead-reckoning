@@ -29,8 +29,9 @@ public class LocationUtil {
 	//step parameters
 	//*************************************************************************
 	private static final float	STEP_INCREMENT = 0.03f;
-	private static final float	STEP_ACCEL_THRESHOLD = 1.0f;
-	private static final int	NUM_ACCEL_SAMPLES = 4;
+	private static final float	STEP_ACCEL_THRESHOLD = 1.2f;
+	private static final int	NUM_ACCEL_SAMPLES = 8;
+	private static final float	SCALE_TO_FEET = 7.0f;
 	
 	//visual trail parameters
 	//*************************************************************************
@@ -151,7 +152,9 @@ public class LocationUtil {
 		
 		FloatPoint last = mBreadCrumbs.getLast();
 		float dist = mLocation.distanceFrom(last);
-		mTotalDistance += dist;
+		float dd = (float)Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
+		
+		mTotalDistance += dd;
 		
 		if ( dist >= CRUMB_RADIUS) {
 			
@@ -215,5 +218,9 @@ public class LocationUtil {
 	
 	public static float getTotalDistance() {
 		return mTotalDistance;
+	}
+	
+	public static float getTotalDistanceFeet() {
+		return mTotalDistance * SCALE_TO_FEET;
 	}
 }
