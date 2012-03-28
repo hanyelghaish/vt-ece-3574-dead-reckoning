@@ -1,10 +1,12 @@
 package edu.vt.dr.testing;
 
 import edu.vt.dr.testing.MySurfaceRenderer;
+import edu.vt.dr.testing.utilities.LocationUtil;
 import edu.vt.dr.testing.utilities.SensorUtil;
 import android.app.Activity;
 import android.os.Bundle;
 import android.opengl.GLSurfaceView;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -22,6 +24,7 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
         super.onCreate(savedInstanceState);
         
         SensorUtil.init(this);
+        LocationUtil.init();
         if (SensorUtil.systemMeetsRequirements()) {
         	
         	requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -42,7 +45,7 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
     public void onResume() {
     	super.onResume();
     	if (sysOk) {
-    		SensorUtil.registerListener();
+    		SensorUtil.registerListeners();
     		GLView.onResume();
     	}
     }
@@ -51,10 +54,17 @@ public class GLAndSensorsActivity extends Activity implements SensorEventListene
     public void onPause() {
     	super.onPause();
     	if (sysOk) {
-    		SensorUtil.unregisterListener();
+    		SensorUtil.unregisterListeners();
     		GLView.onPause();
     	}
     }
+    
+    @Override 
+    public boolean onTouchEvent(MotionEvent event) {
+    	LocationUtil.reset();
+        return true; 
+    } 
+
 
     public void onSensorChanged(SensorEvent event) {
     	SensorUtil.routeEvent(event);

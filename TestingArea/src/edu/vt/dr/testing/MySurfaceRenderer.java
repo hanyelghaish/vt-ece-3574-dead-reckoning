@@ -6,7 +6,8 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.vt.dr.testing.utilities.SensorUtil;
+import edu.vt.dr.testing.utilities.FloatPoint;
+import edu.vt.dr.testing.utilities.LocationUtil;
 
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
@@ -32,11 +33,17 @@ public class MySurfaceRenderer implements GLSurfaceView.Renderer {
 	}
 
 	private void initShapes() {	
-		float shapeCoords[] = {
-			-0.5f, -0.25f, 0.0f,
-			 0.5f, -0.25f, 0.0f,
-			 0.0f,	0.559016994f, 0.0f
-		};
+		
+		float[] shapeCoords =
+			{
+				-0.25f, 0.0f, 0.0f,		//pointer triangle
+				 0.0f,  0.5f, 0.0f,
+				 0.25f, 0.0f, 0.0f,
+				-0.5f, -0.5f, 0.0f,		//home square
+				 0.5f, -0.5f, 0.0f,
+				 0.5f,  0.5f, 0.0f,
+				-0.5f,  0.5f, 0.0f
+			};
 		
 		ByteBuffer vbb = ByteBuffer.allocateDirect(shapeCoords.length * 4);
 		vbb.order(ByteOrder.nativeOrder());
@@ -46,16 +53,38 @@ public class MySurfaceRenderer implements GLSurfaceView.Renderer {
 	}
 	
 	public void onDrawFrame(GL10 gl) {
+		FloatPoint p = LocationUtil.getCurrentLocation();
+		float a = LocationUtil.getCurrentAzimuth();
+		
 		//clear the frame
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		gl.glLoadIdentity();
-		
-        GLU.gluLookAt(gl, 0, 0, -5, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+        GLU.gluLookAt(gl, 0, 0, 5, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
         
-        //set up the points that DrawArrays will use
+        //zoom out
+        float scaleFactor = (float)Math.min(0.5, 1.0f / p.distance());
+        gl.glScalef(scaleFactor, scaleFactor, scaleFactor);
+        
+        //draw home square
+        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
+        gl.glDrawArrays(GL10.GL_LINE_LOOP, 3, 4);
+        
+        //draw pointer
+        gl.glPushMatrix();
+        scaleFactor = LocationUtil.getAverageAcceleration() / 9.0f;
+        gl.glTranslatef(p.getX(), p.getY(), 0);
+        gl.glScalef(scaleFactor, scaleFactor, scaleFactor);
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
-		gl.glDrawArrays(GL10.GL_LINE_LOOP, 0, 3);
+		gl.glRotatef(LocationUtil.getCurrentAzimuthDegrees()-90, 0, 0, 1);
+		gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, 3);
+		gl.glPopMatrix();
+		
+		//draw trail
+		gl.glPushMatrix();
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, LocationUtil.getCrumbBuffer());
+		gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, LocationUtil.getCrumbBufferSize());
+		gl.glPopMatrix();
 	}
 }
