@@ -1,3 +1,13 @@
+/*************************************************************************
+
+  GlAndSensorsActivity
+  
+  	Top-level activity for OpenGL location tracker.
+  	
+  	MH 3.27.2012
+  	
+*************************************************************************/
+
 package edu.vt.dr.testing;
 
 import edu.vt.dr.testing.MySurfaceRenderer;

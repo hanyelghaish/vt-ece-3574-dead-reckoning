@@ -1,3 +1,13 @@
+/*************************************************************************
+
+  SensorUtil
+  
+  	Convenience functions for routing sensor events
+  	
+  	MH 3.27.2012
+  	
+*************************************************************************/
+
 package edu.vt.dr.testing.utilities;
 
 import java.util.HashMap;
@@ -38,7 +48,7 @@ public class SensorUtil {
 		mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     	mSensorManager.registerListener(mListener, mAccelerometer, SensorManager.SENSOR_DELAY_FASTEST);
     	
-    	mVector = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR );
+    	mVector = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
     	mSensorManager.registerListener(mListener, mVector, SensorManager.SENSOR_DELAY_FASTEST);
     	registerHandlers();
 	}

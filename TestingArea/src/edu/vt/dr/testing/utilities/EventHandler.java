@@ -1,3 +1,13 @@
+/*************************************************************************
+
+  EventHandler
+  
+  	Sensor event routing interface
+  	
+  	MH 3.27.2012
+  	
+*************************************************************************/
+
 package edu.vt.dr.testing.utilities;
 
 import android.hardware.SensorEvent;

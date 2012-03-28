@@ -1,3 +1,13 @@
+/*************************************************************************
+
+  MySurfaceRenderer
+  
+  	OpenGL display for location tracking
+  	
+  	MH 3.27.2012
+  	
+*************************************************************************/
+
 package edu.vt.dr.testing;
 
 import java.nio.ByteBuffer;
@@ -54,7 +64,6 @@ public class MySurfaceRenderer implements GLSurfaceView.Renderer {
 	
 	public void onDrawFrame(GL10 gl) {
 		FloatPoint p = LocationUtil.getCurrentLocation();
-		float a = LocationUtil.getCurrentAzimuth();
 		
 		//clear the frame
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
