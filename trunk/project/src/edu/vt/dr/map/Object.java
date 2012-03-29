@@ -14,26 +14,70 @@ import android.opengl.GLUtils;
 
 import edu.vt.dr.*;
 
-public class TheMan {
+public class Object {
+
+	//private float DIMENSION_ = 0.2f;
+	
 	private FloatBuffer vertexBuffer;   // buffer holding the vertices
+	public Wall boundaries_;
+	private int iconID_;
 	 
     private float vertices[] = {
-            -0.2f, -0.2f,  0.0f,        // V1 - bottom left
-            -0.2f,  0.2f,  0.0f,        // V2 - top left
-            0.2f, -0.2f,  0.0f,        // V3 - bottom right
-            0.2f,  0.2f,  0.0f         // V4 - top right
+            0.0f, 0.0f,  0.0f,        // V1 - bottom left
+            0.0f, 0.0f,  0.0f,        // V2 - top left
+            0.0f, 0.0f,  0.0f,        // V3 - bottom right
+            0.0f,  0.0f,  0.0f         // V4 - top right
     };
     
     private FloatBuffer textureBuffer;  // buffer holding the texture coordinates
     private float texture[] = {
             // Mapping coordinates for the vertices
-            0.0f, 1.0f,    // top left     (V2)
-            0.0f, 0.0f,     // bottom left  (V1)
-            1.0f, 1.0f,     // top right    (V4)
-            1.0f, 0.0f      // bottom right (V3)
+            0.0f, 0.0f,     // bottom left   (V2)
+            0.0f, 1.0f,     // top left  (V1)
+            1.0f, 0.0f,     // bottom right    (V4)
+            1.0f, 1.0f      // top right (V3)
     };
 
-    public TheMan() {
+    //CONSTRUCTOR
+    public Object(int iconID, float dimension_x, float dimension_y, float dimension_z,
+    		float position_x, float position_y, float position_z) {
+    	
+    	iconID_ = iconID;
+    	
+    	boundaries_ = new Wall(	position_y + dimension_y/2,
+				position_y - dimension_y/2,
+				position_x - dimension_x/2,
+				position_x + dimension_x/2);
+    	
+    	//SET VERTICES
+    	// V1 - bottom left
+    	vertices[0] = (boundaries_.left_);
+    	vertices[1] = (boundaries_.bottom_); 
+    	// V2 - top left
+    	vertices[3] = (boundaries_.left_);
+    	vertices[4] = (boundaries_.top_); 
+    	 // V3 - bottom right
+    	vertices[6] = (boundaries_.right_);
+    	vertices[7] = (boundaries_.bottom_);  
+    	// V4 - top right
+    	vertices[9] = (boundaries_.right_);
+    	vertices[10] = (boundaries_.top_); 
+    	
+    	
+    	//SET TEXTURE VERTICES
+    	// texture_V1 - top left
+    	//texture[0] = (-dimension_x/2);
+    	//texture[1] = (dimension_y); 
+    	// texture_V2 - bottom left
+    	//texture[2] = (-dimension_x/2);
+    	//texture[3] = (-dimension_y/2); 
+    	 // texture_V3 - top right
+    	//texture[4] = (dimension_x);
+    	//texture[5] = (dimension_y);  
+    	// texture_V4 - bottom right
+    	//texture[6] = (dimension_x);
+    	//texture[10] = (-dimension_y);
+    	
     	
     	ByteBuffer byteBuffer = ByteBuffer.allocateDirect(vertices.length * 4);
     	byteBuffer.order(ByteOrder.nativeOrder());
@@ -79,7 +123,7 @@ public class TheMan {
 
     public void loadGLTexture(GL10 gl, Context context){
     	
-    	Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), edu.vt.dr.R.drawable.androidicon);
+    	Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), iconID_);
     	
     	//generate one texture pointer
     	gl.glGenTextures(1, textures,0);
@@ -96,6 +140,20 @@ public class TheMan {
     	 //Clean up
     	 bitmap.recycle();
 
+    }
+    
+    public class Wall{
+    	public float top_;
+    	public float bottom_;
+    	public float left_;
+    	public float right_;
+    	
+    	public Wall(float top, float bottom, float left, float right){
+    		top_ = top;
+    		bottom_ = bottom;
+    		left_ = left;
+    		right_ = right;
+    	}
     }
     
 }
