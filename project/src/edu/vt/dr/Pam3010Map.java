@@ -28,7 +28,7 @@ public class Pam3010Map extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		//setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		mGLView = new straightActivitySurfaceView(this);
 		setContentView(mGLView);     
 	    TextView tv = new TextView(this);
