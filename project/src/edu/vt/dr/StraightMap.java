@@ -93,6 +93,6 @@ class straightActivitySurfaceView extends GLSurfaceView{
 		// TODO Auto-generated constructor stub
 		
 		//Set the Renderer for drawing on the GLSurfaceView
-		setRenderer(new GLRenderer(/*context,2.0f,1.0f,-5.0f*/));
+		setRenderer(new GLRenderer(context));
 	}
 }
