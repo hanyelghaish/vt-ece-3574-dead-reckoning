@@ -35,22 +35,30 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/rawData"
+        android:id="@+id/trackingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="50dp"
-        android:text="Raw Data" />
+        android:layout_centerHorizontal="true"
+        android:text="Tracking" />
 
     <Button
         android:id="@+id/movementData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="49dp"
-        android:layout_toRightOf="@+id/rawData"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp"
         android:text="Movement" />
+
+    <Button
+        android:id="@+id/rawData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@+id/button1"
+        android:text="Raw Data" />
 
     </RelativeLayout>
 

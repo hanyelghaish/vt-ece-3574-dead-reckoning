@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class AboutUs extends Activity{
     private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
     private static final String MOVEMENT = "edu.vt.dr.MOVEMENTACTIVITY";
+    
 	TextView tv;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class AboutUs extends Activity{
 	    
 	    Button raw = (Button) findViewById(R.id.rawData);
 	    Button movement = (Button) findViewById(R.id.movementData);
+	    Button trackButton = (Button) findViewById(R.id.trackingButton);
 	    
 	    raw.setOnClickListener(new View.OnClickListener() {
 			
@@ -55,6 +57,14 @@ public class AboutUs extends Activity{
 			
 			public void onClick(View v) {
 				Intent i = new Intent(MOVEMENT);
+				startActivity(i);
+			}
+		});
+	    
+	    trackButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent i = new Intent("edu.vt.dr.testing.SELECTIONACTIVITY");
 				startActivity(i);
 			}
 		});
