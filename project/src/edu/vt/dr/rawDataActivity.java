@@ -41,6 +41,7 @@ public class rawDataActivity extends Activity implements SensorEventListener {
 	private TextView tv, tv2, xview, yview, zview, mview;
 	private ProgressBar p1, p2, p3, p4, p5, p6, p7, p8;
 	private float [] samples = new float[8];
+	int a= 0;
 	
 	private FloatFFT_1D fft = new FloatFFT_1D(8);
 	
