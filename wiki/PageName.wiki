@@ -33,3 +33,5 @@ The ides of March hath come.
   # Integrate the map with the moving dot and also draw a trace of where the dot moves. (Kim & Roger)
   # Enhanced splash screen with flash animation (Kim & Roger)
  
+= Build Cycle 4/3 - 4/12 =
+  # Both ends of application will be fully integrated into a single apk (Roger)
