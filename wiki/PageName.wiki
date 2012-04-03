@@ -35,3 +35,7 @@ The ides of March hath come.
  
 = Build Cycle 4/3 - 4/12 =
   # Both ends of application will be fully integrated into a single apk (Roger)
+  # Replace moving arrow with better graphic (Kim)
+  # New User interface with more consistent design (Kim)
+  # Feature to allow users to move objects on the map (Kim)
+  # Scale the movement of the dot to return actual distance travel in feet (Mike)
