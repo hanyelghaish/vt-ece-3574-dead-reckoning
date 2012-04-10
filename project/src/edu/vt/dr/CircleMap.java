@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is for displaying the Circle Map. 
  * 

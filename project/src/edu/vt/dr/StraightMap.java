@@ -17,7 +17,7 @@ import edu.vt.dr.map.*;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is for displaying the Straight Map. 
  * 
@@ -30,6 +30,7 @@ import edu.vt.dr.map.*;
  * 
  * Initials                 Date                Revisions
  * RJB                      2/21/12          Cleaned code; documentation added 
+ * KD                       BC #3
  * 
  ******************************************************************************/
 

@@ -5,6 +5,7 @@
   	Top-level activity for pedometer without visual tracking
   	
   	MH 3.27.2012
+  	RJB 4.10.2012   -changed button listener info (to point to package)
   	
 *************************************************************************/
 
@@ -35,17 +36,35 @@ public class SelectionActivity extends Activity {
 	    
         pedButton.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View v) {
-		      Intent i = new Intent("edu.vt.dr.testing.PedometerActivity");
-              startActivity(i);
+				try {
+					Intent i = new Intent();
+					//Choose Application Package & Class
+					//i.setClassName(<APPLICATION PACKAGE NAME>,<CLASS PACKAGE+NAME>)
+					i.setClassName("edu.vt.dr",
+							"edu.vt.dr.testing.PedometerActivity");
+					startActivity(i);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-        });
+		});
+        	
         
         trackButton.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View v) {
-		      Intent i = new Intent("edu.vt.dr.testing.GLAndSensorsActivity");
-              startActivity(i);
+				try {
+					Intent i = new Intent();
+					//Choose Application Package & Class
+					//i.setClassName(<APPLICATION PACKAGE NAME>,<CLASS PACKAGE+NAME>)
+					i.setClassName("edu.vt.dr",
+							"edu.vt.dr.testing.GLAndSensorsActivity");
+					startActivity(i);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-        });
+		});
+        	
 	}
 	
     @Override

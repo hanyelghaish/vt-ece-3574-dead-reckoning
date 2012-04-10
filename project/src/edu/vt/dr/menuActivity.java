@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is for the menu of selecting a map. 
  * 
