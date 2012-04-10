@@ -6,7 +6,9 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import java.lang.Object;
 
 
 public class AboutUs extends Activity{
@@ -22,6 +24,8 @@ public class AboutUs extends Activity{
 		setContentView(R.layout.aboutus);
 		this.tv = (TextView) findViewById(R.id.boutUsText);
 		tv.setText("");
+		tv.setTextColor(0xFF000000);
+		
 		tv.append("Welcome to our Dead Reckoning App");
 	    tv.append("                                 ");
 	    tv.append("                                 ");
@@ -41,9 +45,9 @@ public class AboutUs extends Activity{
 	    tv.append("   Nathan Gentzen  Roger Baker   ");
 		
 	    
-	    Button raw = (Button) findViewById(R.id.rawData);
-	    Button movement = (Button) findViewById(R.id.movementData);
-	    Button trackButton = (Button) findViewById(R.id.trackingButton);
+	    ImageButton raw = (ImageButton) findViewById(R.id.rawData);
+	    ImageButton movement = (ImageButton) findViewById(R.id.movementData);
+	    ImageButton trackButton = (ImageButton) findViewById(R.id.trackingButton);
 	    
 	    raw.setOnClickListener(new View.OnClickListener() {
 			
