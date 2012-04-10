@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is for reading input from the accelerometer. 
  * 

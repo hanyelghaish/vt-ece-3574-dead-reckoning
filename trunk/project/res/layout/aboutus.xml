@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@null"
-        android:src="@drawable/buttontrace"/>
+        android:src="@drawable/buttonmovement"/>
 
     <ImageButton
         android:id="@+id/rawData"

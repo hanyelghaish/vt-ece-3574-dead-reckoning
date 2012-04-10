@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is for displaying filtered data from devices components. 
  * 
@@ -23,7 +23,7 @@ import android.widget.TextView;
  * Last Revision:
  * 
  * Initials                 Date                Revisions
- * MS/NG                   2/22/12              Initial creation, 
+ * MH                  2/22/12              Initial creation, 
  ******************************************************************************/
 
 public class MovementActivity extends Activity implements SensorEventListener {

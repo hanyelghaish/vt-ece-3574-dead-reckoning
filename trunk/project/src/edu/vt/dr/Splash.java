@@ -8,7 +8,7 @@ import android.view.Window;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Sutton
  * 
  * This class is for the splash screen in the initial launch of the app
  * 
@@ -19,6 +19,7 @@ import android.view.Window;
  * 
  * Initials                 Date                Revisions
  * RJB                      3/12/12           Initial creation, put in sound and temp background 
+ * RJB                      4/10/12           New background added
  ******************************************************************************/
 
 

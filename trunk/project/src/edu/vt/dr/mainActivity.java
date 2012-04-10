@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 /******************************************************************************
  * 
- * @author Roger Baker, Kim Do, Nathan Gentzen, Mike Sutton
+ * @author Roger Baker, Kim Do, Mike Hutton
  * 
  * This class is the main driver of the Project. 
  * 
@@ -32,6 +32,7 @@ import android.widget.TextView;
  * Initials                 Date                Revisions
  * RJB                      2/21/12          Cleaned code; documentation added 
  * RJB                      3/10/12           Added Movement button/functionality
+ * RJB                      4/10/12           
  * 
  ******************************************************************************/
 
