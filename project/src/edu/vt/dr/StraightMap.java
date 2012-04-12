@@ -36,64 +36,12 @@ import edu.vt.dr.map.*;
 
 public class StraightMap extends Activity {
 
-
-	private GLSurfaceView mGLView;
- 
-	
-
-	
-	
-	/**************************************************
-	 * On Create
-	**************************************************/
-
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		mGLView = new straightActivitySurfaceView(this);
-		setContentView(mGLView);     
-	    TextView tv = new TextView(this);
-		tv.setText("(0.00, 0.00)");
-		tv.setTextSize(25);
-		this.addContentView(tv,  new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		
-		
-	}
-	
-	/**************************************************
-	 * On Pause
-	**************************************************/
-	@Override
-	protected void onPause(){
-		super.onPause();
-		mGLView.onPause();
-	}
-	
-	/**************************************************
-	 * On Resume
-	**************************************************/
-	@Override
-	protected void onResume(){
-		super.onResume();
-	}
-
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// TODO Auto-generated method stub
-		
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		setContentView(R.layout.straight);
 	}
 
 }
 
-class straightActivitySurfaceView extends GLSurfaceView{
 
-	public straightActivitySurfaceView(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
-		
-		//Set the Renderer for drawing on the GLSurfaceView
-		setRenderer(new GLRenderer(context));
-	}
-}

@@ -3,6 +3,9 @@ package edu.vt.dr.map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import edu.vt.dr.testing.utilities.FloatPoint;
+import edu.vt.dr.testing.utilities.LocationUtil;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -28,11 +31,15 @@ public class GLRenderer implements Renderer {
 	private float ROW3_Y = 0.57f;
 	private float ROW4_Y = 0.9f;
 	
+	
+	
 	public Object room= new Object(edu.vt.dr.R.drawable.room,3.2f,2.3f,0.0f,0,0,0);
 	
-	public Object table= new Object(edu.vt.dr.R.drawable.table,0.6f,0.333f,0.0f,-0.36667f,-0.61666f,0);
+	public Object theman = new Object(edu.vt.dr.R.drawable.androidicon, 0.3f, 0.3f, 0, 1.3f, -0.8f,0);
 	
-	public Object podium= new Object(edu.vt.dr.R.drawable.podium,0.5f,0.5f,0.0f,-1.0f,-0.61666f,0);
+	public Object table= new Object(edu.vt.dr.R.drawable.table,0.6f,0.333f,0.0f,0.26667f,-0.61666f,0);
+	
+	public Object podium= new Object(edu.vt.dr.R.drawable.podium,1.0f,0.5f,0.0f,-0.8f,-0.61666f,0);
 	
 	
 	public Object desk_1_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW1_Y,0);
@@ -93,16 +100,21 @@ public class GLRenderer implements Renderer {
     }
  
     public void onDrawFrame(GL10 gl) {
+    	
+    	FloatPoint p = LocationUtil.getCurrentLocation();
+    	
         // clear Screen and Depth Buffer
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        
  
         // Reset the Modelview Matrix
         gl.glLoadIdentity();
         
 		
         // Drawing
-        gl.glTranslatef(0.0f, 0.0f, -6.0f);     // move 5 units INTO the screen
+        gl.glTranslatef(0.0f, 0.0f, -3.0f);     // move 5 units INTO the screen
                                                 // is the same as moving the camera 5 units away
+       
         /*
         room.draw(gl);                        // Draw the triangle
         desk1_.draw(gl);
@@ -111,11 +123,19 @@ public class GLRenderer implements Renderer {
         table_.draw(gl);
         podium_.draw(gl);
         */
+        gl.glPushMatrix();
+        gl.glRotatef(180f, 0, 1.0f, 0.0f);
         room.draw(gl);
+        gl.glPopMatrix();
         
         table.draw(gl);
         podium.draw(gl);
         
+        gl.glPushMatrix();
+        gl.glTranslatef(p.getX(), p.getY(), 0);
+        theman.draw(gl);
+        gl.glPopMatrix();
+ 
         desk_1_1.draw(gl);
         desk_1_2.draw(gl);
         desk_1_3.draw(gl);
@@ -186,11 +206,11 @@ public class GLRenderer implements Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
     	// Load the texture for the square
     	    room.loadGLTexture(gl, this.context);
+    	   
     	    
     	    table.loadGLTexture(gl, context);
-    	    
     	    podium.loadGLTexture(gl,context);
-    	    
+    	    theman.loadGLTexture(gl, context);
     	    desk_1_1.loadGLTexture(gl, context);
     	    desk_1_2.loadGLTexture(gl, context);
     	    desk_1_3.loadGLTexture(gl, context);

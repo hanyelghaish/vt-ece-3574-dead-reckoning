@@ -47,6 +47,15 @@
                  android:layout_below="@+id/buttonStraight"
                  android:background="@null"
                  android:src="@drawable/buttoncircle" />
+             
+             <ImageButton
+                 android:id="@+id/buttonLShape"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignLeft="@+id/buttonCircle"
+                 android:layout_below="@+id/buttonCircle"
+                 android:background="@null"
+                 android:src="@drawable/lshape" />
 
          </RelativeLayout>
         
