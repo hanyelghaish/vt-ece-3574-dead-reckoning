@@ -14,6 +14,7 @@ public class ListVMenu extends Activity {
 	private static final String PAM3010 = "edu.vt.dr.PAM3010MAP";
 	private static final String STRAIGHT = "edu.vt.dr.STRAIGHTMAP";
 	private static final String CIRCLE = "edu.vt.dr.CIRCLEMAP";
+	private static final String LSHAPE = "edu.vt.dr.LSHAPEMAP";
 
 	
 	/** Called when the activity is first created. */
@@ -28,6 +29,7 @@ public class ListVMenu extends Activity {
         ImageButton pam3010Button = (ImageButton) findViewById(R.id.buttonPam3010);
         ImageButton straightButton = (ImageButton) findViewById(R.id.buttonStraight);
         ImageButton circleButton = (ImageButton) findViewById(R.id.buttonCircle);
+        ImageButton lshapeButton = (ImageButton) findViewById(R.id.buttonLShape);
                 
         //associates listener for Map Selection button
         pam3010Button.setOnClickListener(new View.OnClickListener(){
@@ -53,6 +55,14 @@ public class ListVMenu extends Activity {
 			
 			public void onClick(View v) {
 				Intent i = new Intent(CIRCLE);
+				startActivity(i);
+			}
+		});
+        
+        lshapeButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent i = new Intent(LSHAPE);
 				startActivity(i);
 			}
 		});

@@ -96,6 +96,10 @@ public class Object {
 
     public void draw(GL10 gl) {
     	
+    	gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    	gl.glEnable(GL10.GL_BLEND);
+    	gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+    	
     	//bind the previously generated texture
     	gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
     	
@@ -103,6 +107,9 @@ public class Object {
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
         
         gl.glFrontFace(GL10.GL_CW);
+        
+        
+        //gl.glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
        
  
         // Point to our vertex buffer
