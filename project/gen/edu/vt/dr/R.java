@@ -103,12 +103,11 @@ public final class R {
         public static final int mainmenu=0x7f030004;
         public static final int maplist=0x7f030005;
         public static final int movement=0x7f030006;
-        public static final int pam3010map=0x7f030007;
-        public static final int pedometer=0x7f030008;
-        public static final int readings=0x7f030009;
-        public static final int selectmode=0x7f03000a;
-        public static final int splash=0x7f03000b;
-        public static final int straight=0x7f03000c;
+        public static final int pedometer=0x7f030007;
+        public static final int readings=0x7f030008;
+        public static final int selectmode=0x7f030009;
+        public static final int splash=0x7f03000a;
+        public static final int straight=0x7f03000b;
     }
     public static final class raw {
         public static final int splashsound=0x7f040000;
