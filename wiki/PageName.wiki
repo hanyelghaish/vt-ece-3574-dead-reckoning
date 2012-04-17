@@ -39,3 +39,7 @@ The ides of March hath come.
   # New User interface with more consistent design (Kim)
   # Put the moving dot on top of the map (Kim)
   # Scale the movement of the dot to return actual distance travel in feet (Mike)
+
+= Build Cycle 4/17 - 4/26 =
+  # Application will have at least one new method of calculating distance, hopefully improving accuracy (Mike)
+  # User will be able to select which measurement method to use (Mike)
