@@ -43,3 +43,4 @@ The ides of March hath come.
 = Build Cycle 4/17 - 4/26 =
   # Application will have at least one new method of calculating distance, hopefully improving accuracy (Mike)
   # User will be able to select which measurement method to use (Mike)
+  # Application will have a calibration feature (Mike)
