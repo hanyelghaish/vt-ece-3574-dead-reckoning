@@ -44,5 +44,5 @@ The ides of March hath come.
   # Application will have at least one new method of calculating distance, hopefully improving accuracy (Mike)
   # User will be able to select which measurement method to use (Mike)
   # User will be able to enter a calibration mode (Mike)
-  # Block the moving dot from moving across the wall or on top of other objects (Kim)
-  # Integrate other maps with the moving dot (Kim)
+  # Block the moving dot from moving across the wall or on top of other objects (Kim and Roger)
+  # Integrate other maps with the moving dot (Kim and Roger)
