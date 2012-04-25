@@ -15,16 +15,6 @@ import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
 
 public class GLRenderer implements Renderer {
-	/*
-    private Rectangle room = new Rectangle(2.0f,1.4f,0.0f, 0.0f,0.0f,0.0f,0.0f,1.0f,1.0f);     // the square
-    
-    private Rectangle desk1_ = new Rectangle(1.75f,0.1f,0.0f, 0.0f, -0.6f,0.0f,1.0f,0.0f,0.0f);
-    private Rectangle desk2_ = new Rectangle(1.75f,0.1f,0.0f, 0.0f, -0.4f,0.0f,1.0f,0.0f,0.0f);
-    private Rectangle desk3_ = new Rectangle(1.75f,0.1f,0.0f, 0.0f, -0.2f,0.0f,1.0f,0.0f,0.0f);
-    
-    private Rectangle table_ = new Rectangle(0.5f,0.25f,0.0f, 0.1f, 0.55f,0.0f,1.0f,0.0f,0.0f);
-    private Rectangle podium_ = new Rectangle(0.25f,0.25f,0.0f, 0.7f, 0.55f,0.0f,1.0f,0.0f,0.0f);
-   */
 	
 	private float ROW1_Y = -0.099f;
 	private float ROW2_Y = 0.24f;
@@ -37,9 +27,9 @@ public class GLRenderer implements Renderer {
 	
 	public Object theman = new Object(edu.vt.dr.R.drawable.androidicon, 0.3f, 0.3f, 0, 1.3f, -0.8f,0);
 	
-	public Object table= new Object(edu.vt.dr.R.drawable.table,0.6f,0.333f,0.0f,0.26667f,-0.61666f,0);
+	public Object table= new Object(edu.vt.dr.R.drawable.table,0.7f,0.4f,0.0f,0.26667f,-0.61666f,0);
 	
-	public Object podium= new Object(edu.vt.dr.R.drawable.podium,1.0f,0.5f,0.0f,-0.8f,-0.61666f,0);
+	public Object podium= new Object(edu.vt.dr.R.drawable.podium,0.9f,0.5f,0.0f,-0.8f,-0.61666f,0);
 	
 	
 	public Object desk_1_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW1_Y,0);
@@ -93,10 +83,7 @@ public class GLRenderer implements Renderer {
     /** Constructor to set the handed over context */
     public GLRenderer(Context context/*, float x, float y, float z*/) {
     	this.context = context;
-        //this.man		= new TheMan();
-       //position[0] = x;
-       //position[1] = y;
-       //position[2] = z;
+       
     }
  
     public void onDrawFrame(GL10 gl) {
@@ -115,14 +102,6 @@ public class GLRenderer implements Renderer {
         gl.glTranslatef(0.0f, 0.0f, -3.0f);     // move 5 units INTO the screen
                                                 // is the same as moving the camera 5 units away
        
-        /*
-        room.draw(gl);                        // Draw the triangle
-        desk1_.draw(gl);
-        desk2_.draw(gl);
-        desk3_.draw(gl);
-        table_.draw(gl);
-        podium_.draw(gl);
-        */
         gl.glPushMatrix();
         gl.glRotatef(180f, 0, 1.0f, 0.0f);
         room.draw(gl);
@@ -131,10 +110,7 @@ public class GLRenderer implements Renderer {
         table.draw(gl);
         podium.draw(gl);
         
-        gl.glPushMatrix();
-        gl.glTranslatef(p.getX(), p.getY(), 0);
-        theman.draw(gl);
-        gl.glPopMatrix();
+        
  
         desk_1_1.draw(gl);
         desk_1_2.draw(gl);
@@ -181,6 +157,11 @@ public class GLRenderer implements Renderer {
         desk_4_10.draw(gl);
         
         
+        gl.glPushMatrix();
+        gl.glTranslatef(p.getX(), p.getY(), 0);
+        theman.draw(gl);
+        gl.glPopMatrix();
+        
      // gl.glTranslatef(position[0], position[1], position[2]);
      		//  man.draw(gl);
         
@@ -210,7 +191,6 @@ public class GLRenderer implements Renderer {
     	    
     	    table.loadGLTexture(gl, context);
     	    podium.loadGLTexture(gl,context);
-    	    theman.loadGLTexture(gl, context);
     	    desk_1_1.loadGLTexture(gl, context);
     	    desk_1_2.loadGLTexture(gl, context);
     	    desk_1_3.loadGLTexture(gl, context);
@@ -254,6 +234,8 @@ public class GLRenderer implements Renderer {
     	    desk_4_8.loadGLTexture(gl, context);
     	    desk_4_9.loadGLTexture(gl, context);
     	    desk_4_10.loadGLTexture(gl, context);
+    	    
+    	    theman.loadGLTexture(gl, context);
     	   
     	 
     	    gl.glEnable(GL10.GL_TEXTURE_2D);            //Enable Texture Mapping ( NEW )
