@@ -46,8 +46,19 @@ public class straightGLRenderer implements Renderer{
        
         room.draw(gl);
         
+        //block moving dot from moving over the walls
+        float x = p.getX();
+        float y = p.getY();
+        
+        if (x>0.4) x=0.3f;
+        if (x<-0.4) x=-0.3f;
+        if (y>0.8) y=0.8f;
+        if (y<-0.8) y=-0.8f;
+        
+        //-------------------------------------------
+        
         gl.glPushMatrix();
-        gl.glTranslatef(p.getX(), p.getY(), 0);
+        gl.glTranslatef(x, y, 0);
         theman.draw(gl);
         gl.glPopMatrix();
         

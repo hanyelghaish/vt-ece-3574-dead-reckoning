@@ -44,9 +44,56 @@ public class circleGLRenderer implements Renderer{
                                                 // is the same as moving the camera 5 units away
        
         room.draw(gl);
+        //block moving dot from moving over the walls
+        float x = p.getX();
+        float y = p.getY();
+        float R = 0.7f;
+        float R_small = 0.3f;
+        
+        if (y<R || y>-R)
+        {
+        	if (x>0){
+        		if(x> Math.sqrt(R*R - y*y)){
+        			x = (float) Math.sqrt(R*R - y*y);
+        		}
+        		if(x< Math.sqrt(R_small*R_small - y*y)){
+        			x = (float) Math.sqrt(R_small*R_small - y*y);
+        		}
+        	}
+        	else{
+        		if(x< -Math.sqrt(R*R - y*y)){
+        			x = (float) -Math.sqrt(R*R - y*y);
+        		}
+        		if(x> -Math.sqrt(R_small*R_small - y*y)){
+        			x = (float) -Math.sqrt(R_small*R_small - y*y);
+        		}
+        	}
+        }
+        else if (x<R || x>-R)
+        {
+        	if (y>0){
+        		if(y> Math.sqrt(R*R - x*x)){
+        			y = (float) Math.sqrt(R*R - x*x);
+        		}
+        		if(y< Math.sqrt(R*R - x*x)){
+        			y = (float) Math.sqrt(R_small*R_small - x*x);
+        		}
+        	}
+        	else{
+        		if(y> -Math.sqrt(R*R - x*x)){
+        			x = (float) -Math.sqrt(R*R - x*x);
+        		}
+        		if(y> -Math.sqrt(R*R - x*x)){
+        			y = (float) -Math.sqrt(R_small*R_small - x*x);
+        		}
+
+        	}
+        }
+        
+        //-------------------------------------------
         
         gl.glPushMatrix();
-        gl.glTranslatef(p.getX(), p.getY(), 0);
+        gl.glTranslatef(x, y, 0);
         theman.draw(gl);
         gl.glPopMatrix();
         
