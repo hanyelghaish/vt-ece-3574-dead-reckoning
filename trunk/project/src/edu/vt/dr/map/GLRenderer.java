@@ -157,10 +157,23 @@ public class GLRenderer implements Renderer {
         desk_4_10.draw(gl);
         
         
+        //block moving dot from moving over the walls
+        float x = p.getX();
+        float y = p.getY();
+        
+        if (x>1.45f) x=1.45f-1.3f;
+        if (x<-1.45f) x=-1.45f-1.3f;
+        if (y>0.9f) y=0.9f+0.8f;
+        
+        if (y<-0.9f) y=-0.9f+0.8f;
+        
+        //-------------------------------------------
+        
         gl.glPushMatrix();
-        gl.glTranslatef(p.getX(), p.getY(), 0);
+        gl.glTranslatef(x, y, 0);
         theman.draw(gl);
         gl.glPopMatrix();
+        
         
      // gl.glTranslatef(position[0], position[1], position[2]);
      		//  man.draw(gl);

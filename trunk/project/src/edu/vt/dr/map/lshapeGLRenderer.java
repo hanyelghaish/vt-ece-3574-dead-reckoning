@@ -45,8 +45,26 @@ public class lshapeGLRenderer implements Renderer{
        
         room.draw(gl);
         
+      //block moving dot from moving over the walls
+        float x = p.getX();
+        float y = p.getY();
+        
+        if (x>0.1f){
+        	if (x>0.65f) x=0.65f;
+        	if (y>0.8f) y=0.8f;
+            if (y<-0.8f) y=-0.80f;
+        }
+        else{
+        	if (x<-0.65f) x=-0.65f;
+        	if (y>0.1f) y=0.1f;
+            if (y<-0.8f) y=-0.80f;
+        }
+        
+        
+        //-------------------------------------------
+        
         gl.glPushMatrix();
-        gl.glTranslatef(p.getX(), p.getY(), 0);
+        gl.glTranslatef(x, y, 0);
         theman.draw(gl);
         gl.glPopMatrix();
         
