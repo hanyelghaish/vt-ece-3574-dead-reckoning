@@ -28,8 +28,8 @@ public class LocationUtil {
 	
 	//step parameters
 	//*************************************************************************
-	private static final float	STEP_INCREMENT = 0.01f;
-	private static final float	STEP_ACCEL_THRESHOLD = 1.2f;
+	private static final float	STEP_INCREMENT = 0.015f;
+	private static final float	STEP_ACCEL_THRESHOLD = 1.0f;
 	private static final int	NUM_ACCEL_SAMPLES = 8;
 	private static final float	SCALE_TO_FEET = 7.0f;
 	
@@ -45,6 +45,7 @@ public class LocationUtil {
 	private static float[] mRotationMatrix = new float[16];
 	private static float mAccelerationAvg = 0;
 	private static float mAzimuth;
+	private static float mAzimuthOffset = 0;
 	private static float mSpeed;
 	private static float mTotalDistance = 0;
 	
@@ -203,8 +204,12 @@ public class LocationUtil {
 		return mRotationVector;
 	}
 	
+	public static void setAzimuthOffset(float o) {
+		mAzimuthOffset = o;
+	}
+	
 	public static float getCurrentAzimuth() {
-		return mAzimuth;
+		return mAzimuth + mAzimuthOffset;
 	}
 	
 	public static float getCurrentAzimuthDegrees() {
