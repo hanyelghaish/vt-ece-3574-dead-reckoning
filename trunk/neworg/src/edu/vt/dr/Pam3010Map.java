@@ -26,6 +26,7 @@ public class Pam3010Map extends Activity implements SensorEventListener{
 	
 	private boolean sysOk;
 	private SensorUtil SU;
+	private boolean presslock = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,23 @@ public class Pam3010Map extends Activity implements SensorEventListener{
 
 	@Override 
     public boolean onTouchEvent(MotionEvent event) {
-		LocationUtil.initPosition(1.3f, -0.8f);
+		
+		if (event.getEventTime() - event.getDownTime() > 500)
+		{
+			if (!presslock) {
+				LocationUtil.setAzimuthOffset(0);
+				
+				float a = LocationUtil.getCurrentAzimuth();
+				LocationUtil.setAzimuthOffset((float)(Math.PI/2 - a));
+				presslock = true;
+			}
+		}
+		else
+		{
+			LocationUtil.initPosition(1.3f, -0.8f);
+			presslock = false;
+		}
+		
         return true; 
     } 
 
