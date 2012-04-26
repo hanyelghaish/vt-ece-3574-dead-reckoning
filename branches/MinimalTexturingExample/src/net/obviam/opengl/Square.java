@@ -3,7 +3,6 @@
  */
 package net.obviam.opengl;
 
-import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -69,8 +68,15 @@ public class Square {
 	 */
 	public void loadGLTexture(GL10 gl, Context context) {
 		// loading texture
+		
+		//using R.drawable.mapstraight causes the texture
+		//not to show up at all
+		
+		//Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
+		//		R.drawable.android);
+		
 		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
-				R.drawable.android);
+				R.drawable.mapstraight);
 		
 		//InputStream is = context.getResources().openRawResource(R.drawable.android);
 		//Bitmap bitmap = BitmapFactory.decodeStream(is);
