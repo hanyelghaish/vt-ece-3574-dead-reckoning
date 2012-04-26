@@ -67,10 +67,14 @@ public class LocationUtil {
 	//reset and init
 	//*************************************************************************
 	public static void reset() {
+		initPosition(0,0);
+	}
+	
+	public static void initPosition(float x, float y) {
 		mBreadCrumbs.clear();
-		mBreadCrumbs.add(new FloatPoint(0,0));
-		mLocation.set(0, 0);
-		mTotalDistance = 0;
+		mBreadCrumbs.add(new FloatPoint(x,y));
+		mLocation.set(x, y);
+		mTotalDistance = 0;		
 	}
 	
 	public static void init() {

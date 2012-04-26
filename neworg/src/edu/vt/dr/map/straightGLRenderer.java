@@ -80,7 +80,7 @@ public class straightGLRenderer implements Renderer{
         //draw the avatar
         gl.glPushMatrix();
         	gl.glTranslatef(x, y, 0);
-        	gl.glScalef(0.5f, 0.5f, 0.5f);
+        	gl.glScalef(0.5f, 0.5f, 1.0f);
         	
         	gl.glPushMatrix();
         		gl.glRotatef(180 ,0.0f, 0.0f, 1.0f);

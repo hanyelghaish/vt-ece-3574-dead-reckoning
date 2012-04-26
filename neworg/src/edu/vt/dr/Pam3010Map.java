@@ -11,7 +11,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
-import android.widget.TextView;
+import android.view.WindowManager;
 
 import edu.vt.dr.utilities.LocationUtil;
 import edu.vt.dr.utilities.SensorUtil;
@@ -20,55 +20,34 @@ public class Pam3010Map extends Activity implements SensorEventListener{
 
 	private GLSurfaceView mGLView;
  
-	
-
-	
-	
 	/**************************************************
 	 * On Create
 	**************************************************/
 	
 	private boolean sysOk;
 	private SensorUtil SU;
-	private TextView tv;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
-		//MIKE'S
-		 SU = new SensorUtil(this);
-	        LocationUtil.init();
-	        if (SU.systemMeetsRequirements()) {
-	        	
-	        	requestWindowFeature(Window.FEATURE_NO_TITLE);
-	        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	        	
-	        
-	        	sysOk = true;
-	        
-	        } else {
-	        	//system does not need requirement
-	        	sysOk = false;
-	        }
-	      //--------------------
-		
-		
-		//setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		SU = new SensorUtil(this);
+		LocationUtil.init();
+		if (SU.systemMeetsRequirements()) {
+    	
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			requestWindowFeature(Window.FEATURE_NO_TITLE);	
+	        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);		
+			sysOk = true;
+    
+		} else {
+			//system does not need requirement
+			sysOk = false;
+		}
+
 		mGLView = new PAM3010SurfaceView(this);
-		setContentView(mGLView); 
-		/*
-	    tv = new TextView(this);
-		tv.setText("(0.00, 0.00)");
-		tv.setTextSize(25);
-		
-		this.addContentView(tv,  new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		*/
-		
-		
-		
+		setContentView(mGLView);		
 	}
 	
 	/**************************************************
@@ -95,16 +74,13 @@ public class Pam3010Map extends Activity implements SensorEventListener{
     	}
 	}
 
-	
-
 	@Override 
     public boolean onTouchEvent(MotionEvent event) {
-    	LocationUtil.reset();
+		LocationUtil.initPosition(1.3f, -0.8f);
         return true; 
     } 
 
     public void onSensorChanged(SensorEvent event) {
-    	
     	SU.routeEvent(event);
     }
     
@@ -118,9 +94,6 @@ class PAM3010SurfaceView extends GLSurfaceView{
 
 	public PAM3010SurfaceView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
-		
-		//Set the Renderer for drawing on the GLSurfaceView
 		setRenderer(new GLRenderer(context));
 	}
 }

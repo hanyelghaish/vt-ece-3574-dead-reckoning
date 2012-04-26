@@ -1,5 +1,9 @@
 package edu.vt.dr.map;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -7,14 +11,32 @@ import edu.vt.dr.utilities.FloatPoint;
 import edu.vt.dr.utilities.LocationUtil;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
 
 public class GLRenderer implements Renderer {
+	
+	private FloatBuffer shapeBuffer;
+
+	private void initShapes() {	
+		
+		float[] shapeCoords =
+			{
+				-0.25f, 0.0f, 0.0f,		//pointer triangle
+				 0.0f,  0.5f, 0.0f,
+				 0.25f, 0.0f, 0.0f,
+				-0.5f, -0.5f, 0.0f,		//home square
+				 0.5f, -0.5f, 0.0f,
+				 0.5f,  0.5f, 0.0f,
+				-0.5f,  0.5f, 0.0f
+			};
+		
+		ByteBuffer vbb = ByteBuffer.allocateDirect(shapeCoords.length * 4);
+		vbb.order(ByteOrder.nativeOrder());
+		shapeBuffer = vbb.asFloatBuffer();
+		shapeBuffer.put(shapeCoords);
+		shapeBuffer.position(0);
+	}
 	
 	private float ROW1_Y = -0.099f;
 	private float ROW2_Y = 0.24f;
@@ -22,68 +44,60 @@ public class GLRenderer implements Renderer {
 	private float ROW4_Y = 0.9f;
 	
 	
+	public Object room 		= new Object(edu.vt.dr.R.drawable.room_ptw,3.8f,3.8f,0.0f,0,0,0);	
+	public Object theman 	= new Object(edu.vt.dr.R.drawable.androidicon_ptwo, 0.5f, 0.5f, 0, 0, 0, 0);
+	public Object table		= new Object(edu.vt.dr.R.drawable.table_ptw,0.7f,0.7f,0.0f,0.26667f,-0.61666f,0);
+	public Object podium	= new Object(edu.vt.dr.R.drawable.podium_ptw,0.9f,0.9f,0.0f,-0.8f,-0.61666f,0);
 	
-	public Object room= new Object(edu.vt.dr.R.drawable.room,3.2f,2.3f,0.0f,0,0,0);
+	public Object desk_1_1= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.838f,ROW1_Y,0);
+	public Object desk_1_2= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.5985f,ROW1_Y,0);
+	public Object desk_1_3= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.359f,ROW1_Y,0);
+	public Object desk_1_4= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.1195f,ROW1_Y,0);
+	public Object desk_1_5= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.1195f,ROW1_Y,0);
+	public Object desk_1_6= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.359f,ROW1_Y,0);
+	public Object desk_1_7= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.5985f,ROW1_Y,0);
+	public Object desk_1_8= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.838f,ROW1_Y,0);
 	
-	public Object theman = new Object(edu.vt.dr.R.drawable.androidicon, 0.3f, 0.3f, 0, 1.3f, -0.8f,0);
+	public Object desk_2_0= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 1.096f,ROW2_Y,0);
+	public Object desk_2_1= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.838f,ROW2_Y,0);
+	public Object desk_2_2= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.5985f,ROW2_Y,0);
+	public Object desk_2_3= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.359f,ROW2_Y,0);
+	public Object desk_2_4= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.1195f,ROW2_Y,0);
+	public Object desk_2_5= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.1195f,ROW2_Y,0);
+	public Object desk_2_6= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.359f,ROW2_Y,0);
+	public Object desk_2_7= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.5985f,ROW2_Y,0);
+	public Object desk_2_8= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.838f,ROW2_Y,0);
+	public Object desk_2_9= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -1.096f,ROW2_Y,0);
 	
-	public Object table= new Object(edu.vt.dr.R.drawable.table,0.7f,0.4f,0.0f,0.26667f,-0.61666f,0);
+	public Object desk_3_0= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 1.096f,ROW3_Y,0);
+	public Object desk_3_1= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.838f,ROW3_Y,0);
+	public Object desk_3_2= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.5985f,ROW3_Y,0);
+	public Object desk_3_3= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.359f,ROW3_Y,0);
+	public Object desk_3_4= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.1195f,ROW3_Y,0);
+	public Object desk_3_5= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.1195f,ROW3_Y,0);
+	public Object desk_3_6= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.359f,ROW3_Y,0);
+	public Object desk_3_7= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.5985f,ROW3_Y,0);
+	public Object desk_3_8= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.838f,ROW3_Y,0);
+	public Object desk_3_9= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -1.096f,ROW3_Y,0);
 	
-	public Object podium= new Object(edu.vt.dr.R.drawable.podium,0.9f,0.5f,0.0f,-0.8f,-0.61666f,0);
-	
-	
-	public Object desk_1_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW1_Y,0);
-	public Object desk_1_2= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.5985f,ROW1_Y,0);
-	public Object desk_1_3= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.359f,ROW1_Y,0);
-	public Object desk_1_4= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.1195f,ROW1_Y,0);
-	public Object desk_1_5= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.1195f,ROW1_Y,0);
-	public Object desk_1_6= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.359f,ROW1_Y,0);
-	public Object desk_1_7= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.5985f,ROW1_Y,0);
-	public Object desk_1_8= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.838f,ROW1_Y,0);
-	
-	public Object desk_2_0= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 1.096f,ROW2_Y,0);
-	public Object desk_2_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW2_Y,0);
-	public Object desk_2_2= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.5985f,ROW2_Y,0);
-	public Object desk_2_3= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.359f,ROW2_Y,0);
-	public Object desk_2_4= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.1195f,ROW2_Y,0);
-	public Object desk_2_5= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.1195f,ROW2_Y,0);
-	public Object desk_2_6= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.359f,ROW2_Y,0);
-	public Object desk_2_7= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.5985f,ROW2_Y,0);
-	public Object desk_2_8= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.838f,ROW2_Y,0);
-	public Object desk_2_9= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -1.096f,ROW2_Y,0);
-	
-	public Object desk_3_0= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 1.096f,ROW3_Y,0);
-	public Object desk_3_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW3_Y,0);
-	public Object desk_3_2= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.5985f,ROW3_Y,0);
-	public Object desk_3_3= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.359f,ROW3_Y,0);
-	public Object desk_3_4= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.1195f,ROW3_Y,0);
-	public Object desk_3_5= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.1195f,ROW3_Y,0);
-	public Object desk_3_6= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.359f,ROW3_Y,0);
-	public Object desk_3_7= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.5985f,ROW3_Y,0);
-	public Object desk_3_8= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.838f,ROW3_Y,0);
-	public Object desk_3_9= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -1.096f,ROW3_Y,0);
-	
-	public Object desk_4_00= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 1.354f,ROW4_Y,0);
-	public Object desk_4_0= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 1.096f,ROW4_Y,0);
-	public Object desk_4_1= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.838f,ROW4_Y,0);
-	public Object desk_4_2= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.5985f,ROW4_Y,0);
-	public Object desk_4_3= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.359f,ROW4_Y,0);
-	public Object desk_4_4= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, 0.1195f,ROW4_Y,0);
-	public Object desk_4_5= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.1195f,ROW4_Y,0);
-	public Object desk_4_6= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.359f,ROW4_Y,0);
-	public Object desk_4_7= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.5985f,ROW4_Y,0);
-	public Object desk_4_8= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -0.838f,ROW4_Y,0);
-	public Object desk_4_9= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -1.096f,ROW4_Y,0);
-	public Object desk_4_10= new Object(edu.vt.dr.R.drawable.desk,0.2f,0.22f,0.0f, -1.354f,ROW4_Y,0);
+	public Object desk_4_00= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 1.354f,ROW4_Y,0);
+	public Object desk_4_0= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 1.096f,ROW4_Y,0);
+	public Object desk_4_1= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.838f,ROW4_Y,0);
+	public Object desk_4_2= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.5985f,ROW4_Y,0);
+	public Object desk_4_3= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.359f,ROW4_Y,0);
+	public Object desk_4_4= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, 0.1195f,ROW4_Y,0);
+	public Object desk_4_5= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.1195f,ROW4_Y,0);
+	public Object desk_4_6= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.359f,ROW4_Y,0);
+	public Object desk_4_7= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.5985f,ROW4_Y,0);
+	public Object desk_4_8= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -0.838f,ROW4_Y,0);
+	public Object desk_4_9= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -1.096f,ROW4_Y,0);
+	public Object desk_4_10= new Object(edu.vt.dr.R.drawable.desk_ptw,0.35f,0.35f,0.0f, -1.354f,ROW4_Y,0);
 	
     private Context		context;
-    
-    //private float	position[] = new float [3];
 
     /** Constructor to set the handed over context */
     public GLRenderer(Context context/*, float x, float y, float z*/) {
     	this.context = context;
-       
     }
  
     public void onDrawFrame(GL10 gl) {
@@ -99,19 +113,21 @@ public class GLRenderer implements Renderer {
         
 		
         // Drawing
-        gl.glTranslatef(0.0f, 0.0f, -3.0f);     // move 5 units INTO the screen
-                                                // is the same as moving the camera 5 units away
+        
+        gl.glColor4f(1f, 1f, 1f, 1f);
+        gl.glTranslatef(0.0f, 0.0f, -3.0f);
        
         gl.glPushMatrix();
-        gl.glRotatef(180f, 0, 1.0f, 0.0f);
-        room.draw(gl);
+        
+        	gl.glRotatef(180f, 0, 1.0f, 0.0f);
+        	
+        	room.draw(gl);
+        
         gl.glPopMatrix();
         
         table.draw(gl);
         podium.draw(gl);
         
-        
- 
         desk_1_1.draw(gl);
         desk_1_2.draw(gl);
         desk_1_3.draw(gl);
@@ -161,24 +177,53 @@ public class GLRenderer implements Renderer {
         float x = p.getX();
         float y = p.getY();
         
-        if (x>1.45f) x=1.45f-1.3f;
-        if (x<-1.45f) x=-1.45f-1.3f;
-        if (y>0.9f) y=0.9f+0.8f;
+        boolean setloc = false;
         
-        if (y<-0.9f) y=-0.9f+0.8f;
+        if (x>1.45) 	{x=1.45f; 	setloc = true;}
+        if (x<-1.45) 	{x=-1.45f;	setloc = true;}
+        if (y>1.1)		{y=1.1f;	setloc = true;}
+        if (y<-1.1)		{y=-1.1f; 	setloc = true;}
         
+        if (setloc) LocationUtil.setLocation(x, y);
         //-------------------------------------------
         
+        drawPointerAndTrail(p, gl);
+        
         gl.glPushMatrix();
-        gl.glTranslatef(x, y, 0);
-        theman.draw(gl);
+        
+        	gl.glTranslatef(x, y, 0);
+        	gl.glColor4f(1f, 1f, 1f, 1f);
+        	theman.draw(gl);
+        
         gl.glPopMatrix();
         
+    }
+    
+    public void drawPointerAndTrail(FloatPoint p, GL10 gl)
+    {
+        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
         
-     // gl.glTranslatef(position[0], position[1], position[2]);
-     		//  man.draw(gl);
-        
- 
+        //draw pointer
+        gl.glDisable(GL10.GL_TEXTURE_2D);
+        gl.glColor4f(0f, 0.5f, 0f, 1f);
+        gl.glPushMatrix();
+	        gl.glTranslatef(p.getX(), p.getY(), 0.0f);
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
+			gl.glRotatef(LocationUtil.getCurrentAzimuthDegrees()-90, 0, 0, 1);
+			gl.glScalef(0.2f, 0.2f, 1f);
+			gl.glTranslatef(0.0f, 0.8f, 0.0f);
+			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, 3);
+		gl.glPopMatrix();
+		
+		//draw trail
+		gl.glColor4f(0f, 0.0f, 0f, 1f);
+		gl.glPushMatrix();
+			gl.glTranslatef(0f, 0f, 0.0f);
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, LocationUtil.getCrumbBuffer());
+			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, LocationUtil.getCrumbBufferSize());
+		gl.glPopMatrix();
+		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+		gl.glEnable(GL10.GL_TEXTURE_2D);
     }
  
     public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -199,6 +244,8 @@ public class GLRenderer implements Renderer {
  
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
     	// Load the texture for the square
+    		initShapes();
+    		LocationUtil.initPosition(1.3f, -0.8f);
     	    room.loadGLTexture(gl, this.context);
     	   
     	    
