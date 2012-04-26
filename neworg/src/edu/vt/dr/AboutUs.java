@@ -35,7 +35,7 @@ import edu.vt.dr.R;
 
 public class AboutUs extends Activity{
     private static final String SELECTION_ACTIVITY = "edu.vt.dr.SelectionActivity";
-	private static final String RAWDATAACTIVITY = "edu.vt.dr.RAWDATAACTIVITY";
+	private static final String CALIBACTIVITY = "edu.vt.dr.CalibrationActivity";
     private static final String MOVEMENT = "edu.vt.dr.MOVEMENTACTIVITY";
     
 	TextView tv;
@@ -75,7 +75,7 @@ public class AboutUs extends Activity{
 	    raw.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				Intent i = new Intent(RAWDATAACTIVITY);
+				Intent i = new Intent(CALIBACTIVITY);
 				startActivity(i);
 			}
 		});
