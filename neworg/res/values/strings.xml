@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chooseMap">Choose Map</string>
+    <string name="app_name">Dead Reckoning</string>
+    <string name="intro">Click the Choose Map button to get started! From that screen, choose the desired map. Or, to view raw data from the Accelerometer, click on Raw Data</string>
+    <string name="credits">Made by: L4DR Team</string>
+    <string name="credits2">ECE 3574 - Build Cycle #3</string>
+    <string name="date">03/11/2012</string>
+    <string name="spaces">     </string>
+    <string name="hello">Samples</string>
+    <string name="frequency">Frequency</string>
+
+</resources>

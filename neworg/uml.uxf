@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.4">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>273</x>
+      <y>357</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Splash: Class
+--
+spashChime:MediaPlayer
+--
+#onCreate(Bundle b): void
+#onPause(): void
+--
+Responsibilities
+-- Displays splash.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>42</y>
+      <w>147</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>AboutUs: Class
+--
+-raw: ImageButton
+-movement: ImageButton
+-trackButton: ImageButton
+--
+#onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays aboutus.xml
+-- Extends Activity
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>343</x>
+      <y>1057</y>
+      <w>266</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>SelectionActivity: Class
+--
+-pedButton: Button
+-trackButton: Button
+--
+#onCreate(Bundle b): void
++onPause(): void
++onResume(): void
+--
+Responsibilities
+-- Displays selectmode.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>273</x>
+      <y>49</y>
+      <w>231</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>MovementActivity: Class
+--
+-mSensorManager: SensorManager
+-mAccelerometer: Sensor
+-mMagnet: Sensor 
+-mLinearAccel: Sensor
+-xyBox: TextView 
+-angleBox: TextView 
+-linearAccelBox: TextView
+-accelArray[]: float
+-magneticArray[]: float
+-rotationArray[]: float 
+-inclinationArray[]: float
+-worldAccelArray[]: float
+-linearAccelArray[]: float
+-positionArray[]: float
+-velocityArray[]: float
+#buttonStateStart: bool
+--
++onCreate(): void
++onAccuracyChanged(arg0:Sensor, arg1:int): void
++onSensorChanged(event:SensorEvent): void
+--
+Responsibilities
+-- Displays movement.xml
+-- Extends Activity
+-- Implements SensorEventListener</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>385</x>
+      <y>630</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>CalibrateActivity: Class
+--
+-id:
+--
+#Operation(i: int): int
+--
+Responsibilities
+-- Resp1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>245</y>
+      <w>147</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>ListVMenu: Class
+--
+-PAM3010: String
+-STRAIGHT: String
+-CIRCLE: String
+-LSHAPE: String
+--
++onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays maplist.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>546</y>
+      <w>154</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Pam3010Map: Class
+--
+-mGLView: GLSurfaceView
+-sysOk: boolean
+-SU: SensorUtil
+-tv: TextView
+--
+#onCreate(Bundle b): void
+#onPause(): void
+#onResume(): void
+#onTouchEvent(MotionEvent event): void
+--
+Responsibilities
+
+-- Extends Activity
+-- Implement SensorEventListener</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>273</x>
+      <y>462</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>StraightMap: Class
+--
+--
+#onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays straight.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>161</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>CircleMap: Class
+--
+--
+#onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays circle.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>371</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>LShapeMap: Class
+--
+--
+#onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays lshape.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>63</x>
+      <y>14</y>
+      <w>497</w>
+      <h>700</h>
+    </coordinates>
+    <panel_attributes>package edu.vt.dr
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>84</x>
+      <y>448</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>mainActivity: Class
+--
+-LISTVMENU: String
+-ABOUTUS: String
+--
++onCreate(Bundle b): void
+--
+Responsibilities
+-- Displays mainmenu.xml
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>595</x>
+      <y>98</y>
+      <w>637</w>
+      <h>399</h>
+    </coordinates>
+    <panel_attributes>package edu.vt.dr.map
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>602</x>
+      <y>133</y>
+      <w>259</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>GLRenderer: Class
+--
++room: Object
++theman: Object
++table: Object
++podium: Object
++desk0-35: Object
+-ROW1_Y: float
+-ROW2_Y: float
+-ROW3_Y: float
+-ROW4_Y: float
+-context: Context
+--
++GLRenderer(context: Context)
++onDrawFrame(gl: GL10): void
++onSurfaceChanged(gl: GL10, width: int, height: int): void
++onSurfaceCreated(gl: GL10, config: EGLConfig): void 
+--
+Responsibilities
+-- Draws PAM3010 map on screen
+-- Implements Renderer
+-- Imports OpenGL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>875</x>
+      <y>133</y>
+      <w>343</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Object: Class
+--
+-vertexBuffer: FloatBuffer
+-textureBuffer: FloatBuffer
++boundaries_: Wall
+-iconID_: int
+-texture[]: float
+-texture[]: vertices
+--
++Object(iconID: int, dimension_x: float, dimension_y: float, dimension_z: float,
+    		 position_x: float, position_y: float, position_z: float)
++draw(gl: GL1)
++loadGLTexture(gl: GL10, context: Context)
+--
+Responsibilities
+-- Holds Wall object class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>602</x>
+      <y>385</y>
+      <w>259</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>TheFloor.java
+--
+-vertexBuffer: FloatBuffer
+-texture[]: vertices
+--
++TheFloor()
++draw(gl: GL10)
+--
+Responsibilities
+-- Creates object of the Floor
+-- Imports Kronos GL10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>0</x>
+      <y>777</y>
+      <w>658</w>
+      <h>518</h>
+    </coordinates>
+    <panel_attributes>package edu.vt.dr.testing
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>21</x>
+      <y>812</y>
+      <w>266</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>GLAndSensorsActivity: Class
+--
+-GLView: MySurfaceView
+-sysOk: boolean
+-SU: SensorUtil
+--
++onCreate(Bundle b): void
++onPause(): void
++onResume(): void
++onTouchEvent(event: MotionEvent): void
++onAccuracyChanged(sensor: Sensor, accuracy: int): void
++onSensorChanged(event: SensorEvent): void
+--
+Responsibilities
+-- Implements SensorEventListener
+-- Extends Activity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>28</x>
+      <y>1120</y>
+      <w>266</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>MySurfaceRenderer: Class
+--
+-shapeBuffer: FloatBuffer
+--
++onSurfaceCreated(gl: GL10, config:EGLConfig)
++onSurfaceChanged(gl: GL10, width: int, height: int)
+-initShapes(): void
++onDrawFrame(gl: GL10): void
+--
+Responsibilites
+--Implements GLSurfaceView.Renderer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>336</x>
+      <y>833</y>
+      <w>266</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>PedometerActivity: Class
+--
+-distanceText: TextView 
+-SU: SensorUtil
+--
+#onCreate(Bundle b): void
++onPause(): void
++onResume(): void
++onTouchEvent(event: MotionEvent): void
++onAccuracyChanged(sensor: Sensor, accuracy: int): void
++onSensorChanged(event: SensorEvent): void
+--
+Responsibilites
+-- Extends Activity 
+-- Implements SensorEventListener
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>749</x>
+      <y>595</y>
+      <w>448</w>
+      <h>616</h>
+    </coordinates>
+    <panel_attributes>package edu.vt.testing.utilities
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>756</x>
+      <y>630</y>
+      <w>189</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>AccelerationHandler: Class
+--
+
+--
++service(e: SensorEvent): void
+--
+-- Implements Event Handler
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>756</x>
+      <y>714</y>
+      <w>189</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>EventHandler: Class
+--
+
+--
++service(e: SensorEvent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>980</x>
+      <y>644</y>
+      <w>203</w>
+      <h>469</h>
+    </coordinates>
+    <panel_attributes>LocationUtil: Class
+--
+-STEP_INCREMENT: float
+-STEP_ACCEL_THRESHOLD: float
+-NUM_ACCEL_SAMPLES: int
+-SCALE_TO_FEET: float
+-CRUMB_RADIUS: float
+-MAX_POINTS: int
+-mLocation: FloatPoint
+-mRotationVector[]: float[]
+-mRotationMatrix[]: float[]
+-mAccelerationAvg: float
+-mAzimuth: float
+-mSpeed: float
+-mTotalDistance: float
+-mBreadCrumbs: Deque&lt;FloatPoint&gt;
+-crumbBuffer: FloatPoint
+-crumbCoords[]: float[]
+-sampleIndex: int
+-averageReady: boolean
+-samples[]: float[]
+--
++init(): void
++reset(): void
++rotationUpdate(e: SensorEvent): void
++accelerationUpdate(e: SensorEvent): void
++takeStep(): void
++speedDecay(): void
++updateLocation(): void
++getCurrentRotationMatrix(): float[]
++getCurrentRotationVector(): float[]
++getCurrentAzimuth(): float
++getCurrentAzimuthDegrees(): float
++getCurrentSpeed(): float
++getCurrentLocation(): FloatPoint
++getAverageAcceleration(): float
++getCrumbBuffer(): FloatBuffer
++getCrumbBufferSize(): int
++getTotalDistance(): float
++getTotalDistanceFeet(): float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>756</x>
+      <y>770</y>
+      <w>189</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>RotationHandler: Class
+--
+
+--
++service(e: SensorEvent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>756</x>
+      <y>973</y>
+      <w>189</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>SensorUtil: Class
+--
+-mSensorManager: SensorManager
+-mListener: SensorEventListener
+-mAccelerometer: Sensor
+-mVector: Sensor
+-mHandlers: Map&lt;Integer, EventHandler&gt;
+--
+_+SensorUtil(a: Activity)_
++systemMeetsRequirements(): boolean
++registerListeners(): void
++unregisterListeners(): void
++registerHandlers(): void
++unregisterHandlers(): void
++routeEvent(e: SensorEvent): void
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>756</x>
+      <y>826</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>FloatPoint: Class
+--
+-x: float
+-y: float
+--
++getX(): float
++getY(): float
+_+FloatPoint(ix: float,iy: float)_
++set(newx: float, newy: float): void
++offset(dx: float, dy: float): void
++distance(): float
++distanceFrom(other FloatPoint): float
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>931</x>
+      <y>350</y>
+      <w>224</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Wall: Class
+--
++top_: float
++bottom_: float
++left_: float
++right_: float
+--
++Wall(top: float, bottom: float,left: float, right: float)
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1015</x>
+      <y>280</y>
+      <w>34</w>
+      <h>83</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(+)-
+</panel_attributes>
+    <additional_attributes>21;21;21;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>133</x>
+      <y>959</y>
+      <w>35</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(+)-
+</panel_attributes>
+    <additional_attributes>21;21;21;77</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>70</x>
+      <y>1036</y>
+      <w>161</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>MySurfaceView: Class
+--
+
+--
++MySurfaceView(context: Context)
+--
+Responsibilites
+-- Extends GLSurfaceView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>273</x>
+      <y>546</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>PAM3010SurfaceView: Class
+--
+--
+#PAM3010(context: Context)
+--
+Responsibilities
+-- Extends GLSurfaceView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>217</x>
+      <y>560</y>
+      <w>70</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(+)-
+</panel_attributes>
+    <additional_attributes>21;56;56;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>826</x>
+      <y>658</y>
+      <w>35</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;&gt;.</panel_attributes>
+    <additional_attributes>21;56;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>826</x>
+      <y>637</y>
+      <w>154</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;&gt;.</panel_attributes>
+    <additional_attributes>21;133;21;119;140;119;140;49;140;21;119;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1071</x>
+      <y>0</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>_Dead Reckoning Package UML_
+Roger Baker
+Mike Hutton
+Kim Do</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

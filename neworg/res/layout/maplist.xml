@@ -1,0 +1,62 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+
+        
+
+         <ImageView
+	        android:id="@+id/titlemaps"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0"
+	        android:layout_gravity="center"
+	        android:src="@drawable/titlemaps" />
+
+         <RelativeLayout
+             android:id="@+id/relativeLayout1"
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="0.67" >
+
+             <ImageButton
+                 android:id="@+id/buttonPam3010"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignBottom="@+id/titlemaps"
+                 android:layout_centerHorizontal="true"
+                 android:background="@null"
+                 android:src="@drawable/pam3010" />
+
+             <ImageButton
+                 android:id="@+id/buttonStraight"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignLeft="@+id/buttonPam3010"
+                 android:layout_below="@+id/buttonPam3010"
+                 android:background="@null"
+                 android:src="@drawable/buttonstraight" />
+
+             <ImageButton
+                 android:id="@+id/buttonCircle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignLeft="@+id/buttonStraight"
+                 android:layout_below="@+id/buttonStraight"
+                 android:background="@null"
+                 android:src="@drawable/buttoncircle" />
+             
+             <ImageButton
+                 android:id="@+id/buttonLShape"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignLeft="@+id/buttonCircle"
+                 android:layout_below="@+id/buttonCircle"
+                 android:background="@null"
+                 android:src="@drawable/lshape" />
+
+         </RelativeLayout>
+        
+    </LinearLayout>
