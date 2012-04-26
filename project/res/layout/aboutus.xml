@@ -44,7 +44,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="18dp"
         android:background="@null"
-        android:src="@drawable/buttonrawdata"/>
+        android:src="@drawable/buttoncalibrate"/>
 
     <ScrollView
         android:id="@+id/ScrollView1"
