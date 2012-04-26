@@ -56,35 +56,12 @@ public class straightGLRenderer implements Renderer{
         // Reset the Modelview Matrix
         gl.glLoadIdentity();
         
-        
         // Draw the room
         gl.glTranslatef(0.0f, 0.0f, -3.0f);
         gl.glColor4f(1f, 1f, 1f, 1f);
         room.draw(gl);
         
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-        //gl.glColor4f(0f, 0f, 0f, 1f);
-        
-        //draw pointer
-        gl.glDisable(GL10.GL_TEXTURE_2D);
-        gl.glPushMatrix();
-	        gl.glTranslatef(p.getX(), p.getY(), 0.0f);
-			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
-			gl.glRotatef(LocationUtil.getCurrentAzimuthDegrees()-90, 0, 0, 1);
-			gl.glScalef(0.2f, 0.2f, 1f);
-			gl.glTranslatef(0.0f, 0.8f, 0.0f);
-	        gl.glColor4f(0f, 0.5f, 0f, 1f);
-			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, 3);
-		gl.glPopMatrix();
-		gl.glEnable(GL10.GL_TEXTURE_2D);
-		
-		//draw trail
-		gl.glPushMatrix();
-			gl.glTranslatef(0f, 0f, 0.0f);
-			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, LocationUtil.getCrumbBuffer());
-			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, LocationUtil.getCrumbBufferSize());
-		gl.glPopMatrix();
-		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+        drawPointerAndTrail(p, gl);
         
         //block moving dot from moving over the walls
         float x = p.getX();
@@ -110,6 +87,33 @@ public class straightGLRenderer implements Renderer{
         		theman.draw(gl);
         	gl.glPopMatrix();
         gl.glPopMatrix();
+    }
+    
+    public void drawPointerAndTrail(FloatPoint p, GL10 gl)
+    {
+        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+        
+        //draw pointer
+        gl.glDisable(GL10.GL_TEXTURE_2D);
+        gl.glColor4f(0f, 0.5f, 0f, 1f);
+        gl.glPushMatrix();
+	        gl.glTranslatef(p.getX(), p.getY(), 0.0f);
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, shapeBuffer);
+			gl.glRotatef(LocationUtil.getCurrentAzimuthDegrees()-90, 0, 0, 1);
+			gl.glScalef(0.2f, 0.2f, 1f);
+			gl.glTranslatef(0.0f, 0.8f, 0.0f);
+			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, 3);
+		gl.glPopMatrix();
+		
+		//draw trail
+		gl.glColor4f(0f, 0.0f, 0f, 1f);
+		gl.glPushMatrix();
+			gl.glTranslatef(0f, 0f, 0.0f);
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, LocationUtil.getCrumbBuffer());
+			gl.glDrawArrays(GL10.GL_LINE_STRIP, 0, LocationUtil.getCrumbBufferSize());
+		gl.glPopMatrix();
+		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+		gl.glEnable(GL10.GL_TEXTURE_2D);
     }
  
     public void onSurfaceChanged(GL10 gl, int width, int height) {
