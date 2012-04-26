@@ -56,7 +56,7 @@ public class StraightMap extends Activity implements SensorEventListener {
     	
 			//System is okay; lock the screen orientation
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);			
 			sysOk = true;
 
 		} else {
