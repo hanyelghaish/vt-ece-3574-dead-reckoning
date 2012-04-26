@@ -37,10 +37,6 @@ import android.view.Window;
 public class StraightMap extends Activity implements SensorEventListener {
 
 	private GLSurfaceView straightmGLView;
- 
-	
-
-	
 	
 	/**************************************************
 	 * On Create
@@ -53,31 +49,25 @@ public class StraightMap extends Activity implements SensorEventListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
-		//MIKE'S
-		 SU = new SensorUtil(this);
-	        LocationUtil.init();
-	        if (SU.systemMeetsRequirements()) {
-	        	
-	        	requestWindowFeature(Window.FEATURE_NO_TITLE);
-	        	setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	        	
-	        
-	        	sysOk = true;
-	        
-	        } else {
-	        	//system does not need requirement
-	        	sysOk = false;
-	        }
-	      //--------------------
-		
-		
-		//setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		SU = new SensorUtil(this);
+		LocationUtil.init();
+		if (SU.systemMeetsRequirements()) {
+    	
+			//System is okay; lock the screen orientation
+			requestWindowFeature(Window.FEATURE_NO_TITLE);
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			sysOk = true;
+
+		} else {
+			
+			//system does not need requirement
+			sysOk = false;
+		}
+	      
+		//OpenGL view init
 		straightmGLView = new straightSurfaceView(this);
-		setContentView(straightmGLView); 
-		
-		 
+		setContentView(straightmGLView);
 	}
 
 		

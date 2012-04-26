@@ -28,14 +28,14 @@ public class LocationUtil {
 	
 	//step parameters
 	//*************************************************************************
-	private static final float	STEP_INCREMENT = 0.03f;
+	private static final float	STEP_INCREMENT = 0.01f;
 	private static final float	STEP_ACCEL_THRESHOLD = 1.2f;
 	private static final int	NUM_ACCEL_SAMPLES = 8;
 	private static final float	SCALE_TO_FEET = 7.0f;
 	
 	//visual trail parameters
 	//*************************************************************************
-	private static final float	CRUMB_RADIUS = 0.25f;
+	private static final float	CRUMB_RADIUS = 0.09f;
 	private static final int	MAX_POINTS = 250;
 
 	//location and orientation
@@ -96,7 +96,7 @@ public class LocationUtil {
 		SensorManager.getRotationMatrixFromVector(mRotationMatrix, e.values);
 		SensorManager.getOrientation(mRotationMatrix, projected);
 		
-		mAzimuth = projected[0];
+		mAzimuth = -projected[0];
 		updateLocation();
 	}
 
@@ -141,22 +141,33 @@ public class LocationUtil {
 		mSpeed = 0;
 	}
 	
+	public static void setLocation(float x, float y) {
+		
+		mLocation.set(x, y);
+		
+		FloatPoint last = mBreadCrumbs.getLast();
+		float dd = mLocation.distanceFrom(last);
+		
+		updateCrumbs(dd);
+	}
+	
 	//updateLocation
 	//*************************************************************************
 	public static void updateLocation() {
 		float dx = (float)Math.cos(getCurrentAzimuth()) * getCurrentSpeed();
 		float dy = (float)Math.sin(getCurrentAzimuth()) * getCurrentSpeed();
-				
-		mLocation.offset(dx, dy);
-		speedDecay();
-		
-		FloatPoint last = mBreadCrumbs.getLast();
-		float dist = mLocation.distanceFrom(last);
 		float dd = (float)Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
 		
+		mLocation.offset(dx, dy);
+		speedDecay();
+		updateCrumbs(dd);
+	}
+	
+	private static void updateCrumbs(float dd) {
+		FloatPoint last = mBreadCrumbs.getLast();		
 		mTotalDistance += dd;
 		
-		if ( dist >= CRUMB_RADIUS) {
+		if ( mLocation.distanceFrom(last) >= CRUMB_RADIUS) {
 			
 			if (mBreadCrumbs.size() >= MAX_POINTS)
 				mBreadCrumbs.removeFirst();
@@ -193,7 +204,7 @@ public class LocationUtil {
 	}
 	
 	public static float getCurrentAzimuthDegrees() {
-		return mAzimuth * (float)(180/Math.PI);
+		return getCurrentAzimuth() * (float)(180/Math.PI);
 	}
 	
 	public static float getCurrentSpeed() {
