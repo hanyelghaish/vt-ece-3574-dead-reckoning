@@ -1,0 +1,1 @@
+Given a known starting location, this app will use dead reckoning to compute a user's current location.
